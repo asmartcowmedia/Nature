@@ -1,4 +1,3 @@
-using UnityEditorInternal;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -15,6 +14,9 @@ public class CharacterController : MonoBehaviour
     private Vector2
         _velocity;
 
+    private Vector3
+        _mousePosition;
+
     private void Awake()
     {
         if (rigidBody == null) gameObject.GetComponent<Rigidbody2D>();
@@ -26,17 +28,16 @@ public class CharacterController : MonoBehaviour
     private void Update()
     {
         Move();
-        FaceMouse();
+        MousePosition();
     }
 
-    private void FaceMouse()
+    private void MousePosition()
     {
-        var mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
-        var mouseToWorld = cameraReference.ScreenToWorldPoint(mouse);
+        _mousePosition = cameraReference.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cameraReference.transform.position.z * -1));
+        _mousePosition = transform.InverseTransformPoint(_mousePosition);
         
-        Debug.Log(mouseToWorld);
-        
-        Debug.DrawLine(transform.position, mouseToWorld, Color.cyan);
+        fov.SetAimDirection(_mousePosition);
+        fov.SetOrigin(transform.position);
     }
 
     private void Move()

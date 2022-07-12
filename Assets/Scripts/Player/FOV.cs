@@ -25,7 +25,7 @@ public class FOV : MonoBehaviour
         origin = Vector3.zero;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         angle = _startingAngle;
         var angleIncrease = fov / rayCount;
@@ -94,6 +94,6 @@ public class FOV : MonoBehaviour
 
     public void SetAimDirection(Vector3 aimDirection)
     {
-        _startingAngle = GetAngleFromVectorFloat(aimDirection) - fov / 2f;
+        _startingAngle = GetAngleFromVectorFloat(aimDirection) + fov / 2f;
     }
 }
