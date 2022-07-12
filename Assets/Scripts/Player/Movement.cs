@@ -1,32 +1,27 @@
+using System;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    [SerializeField] private Rigidbody2D rigidBody;
+    
     [SerializeField] private float
-        movementSpeed,
-        zoomSensitivity;
-
-    [SerializeField] private Vector2
-        zoomClamp;
-
-    [SerializeField] private Camera cam;
+        movementSpeed;
 
     private Vector2
         _velocity;
 
-    private Vector3
-        _currentZoom;
-
-    private void Start()
+    private void Awake()
     {
-        if (cam == null) cam = Camera.main;
-        zoomSensitivity *= 50;
+        if (rigidBody == null) gameObject.GetComponent<Rigidbody2D>();
+        rigidBody.gravityScale = 0f;
+        rigidBody.angularDrag = 8f;
+        rigidBody.drag = 8f;
     }
 
     private void Update()
     {
         Move();
-        Zoom();
     }
 
     private void Move()
@@ -34,25 +29,8 @@ public class Movement : MonoBehaviour
         _velocity.x = Input.GetAxis("Horizontal");
         _velocity.y = Input.GetAxis("Vertical");
 
-        _velocity *= movementSpeed * Time.deltaTime;
+        _velocity *= 500 * (movementSpeed * Time.deltaTime);
 
-        transform.Translate(_velocity);
-    }
-
-    private void Zoom()
-    {
-        var pos = cam.transform.position;
-        _currentZoom.z += Input.GetAxis("Mouse ScrollWheel") * (zoomSensitivity * Time.deltaTime);
-
-        if (_currentZoom.z <= zoomClamp.y)
-        {
-            _currentZoom.z = zoomClamp.y;
-        }
-        if (_currentZoom.z >= zoomClamp.x)
-        {
-            _currentZoom.z = zoomClamp.x;
-        }
-        
-        cam.transform.localPosition = new Vector3(0, 0, _currentZoom.z);
+        rigidBody.AddForce(_velocity);
     }
 }
