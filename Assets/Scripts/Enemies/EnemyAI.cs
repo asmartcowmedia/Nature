@@ -1,11 +1,12 @@
+using System;
 using UnityEngine;
 using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private Transform target;
-
-    [SerializeField] private Transform[] patrolTargets;
+    
+    [SerializeField] private GameObject circle;
 
     [SerializeField] private Seeker seeker;
 
@@ -19,15 +20,18 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float
         speed = 10f,
         nextWaypointDistance = 3f,
-        repathRate = 3f;
+        repathRate = 3f,
+        stopRange = 3f,
+        distanceToFollowPlayer = 10f;
+
+    [SerializeField] private bool
+        drawCustomGizmo;
 
     private Path _path;
     
     private int 
         _currentWaypoint = 0,
         _index;
-
-    private IAstarAI _agent;
 
     private bool _reachedEndOfPath;
 
@@ -38,9 +42,8 @@ public class EnemyAI : MonoBehaviour
     {
         if (seeker == null) seeker = GetComponent<Seeker>();
         if (rigidbody == null) rigidbody = GetComponent<Rigidbody2D>();
-        if (_agent == null) _agent = GetComponent<IAstarAI>();
     }
-
+    
     private void OnPathComplete(Path p)
     {
         p.Claim(this);
@@ -56,24 +59,26 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if (Vector3.Distance(transform.position, target.position) <= distanceToFollowPlayer)
+        {
+            FollowPlayer();
+        }
+        
+        DrawCircle();
     }
 
-    private void Patrol()
+    private void DrawCircle()
     {
-        if (patrolTargets.Length == 0) return;
-
-        var search = false;
-
-        if (_agent.reachedEndOfPath && !_agent.pathPending)
+        switch (drawCustomGizmo)
         {
-            _index++;
-            search = true;
+            case true:
+                circle.SetActive(true);
+                circle.transform.localScale = new Vector3(distanceToFollowPlayer + 4, distanceToFollowPlayer + 4, 0);
+                break;
+            case false:
+                circle.SetActive(false);
+                break;
         }
-
-        _index = _index % patrolTargets.Length;
-        _agent.destination = patrolTargets[_index].position;
-        
-        if (search) _agent.SearchPath();
     }
 
     private void FollowPlayer()
@@ -90,6 +95,7 @@ public class EnemyAI : MonoBehaviour
         _reachedEndOfPath = false;
 
         float distanceToWaypoint;
+        float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
 
         while (true)
         {
@@ -97,7 +103,12 @@ public class EnemyAI : MonoBehaviour
 
             if (distanceToWaypoint < nextWaypointDistance)
             {
-                if (_currentWaypoint + 1 < _path.vectorPath.Count)
+                if (distanceToTarget <= stopRange)
+                {
+                    _reachedEndOfPath = true;
+                    break;
+                }
+                else if (_currentWaypoint + 1 < _path.vectorPath.Count)
                 {
                     _currentWaypoint++;
                 }
@@ -112,14 +123,14 @@ public class EnemyAI : MonoBehaviour
 
         var speedFactor = _reachedEndOfPath ? Mathf.Sqrt(distanceToWaypoint / nextWaypointDistance) : 1f;
         var dir = (_path.vectorPath[_currentWaypoint] - transform.position).normalized;
-        var velocity = dir * speed * speedFactor;
+        var velocity = dir * (speed * speedFactor);
 
         velocity *= 500 * Time.deltaTime;
 
         rigidbody.AddForce(velocity);
 
-        if (rigidbody.velocity.x >= 0.01f) graphics.localScale = graphicsScale;
-        else if (rigidbody.velocity.x <= -0.01f) graphics.localScale = new Vector3(-graphicsScale.x, graphicsScale.y, graphicsScale.z);
+        if (rigidbody.velocity.x >= 1f) graphics.localScale = graphicsScale;
+        else if (rigidbody.velocity.x <= -1f) graphics.localScale = new Vector3(-graphicsScale.x, graphicsScale.y, graphicsScale.z);
         
     }
 }

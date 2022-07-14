@@ -97,4 +97,9 @@ public class FOV : MonoBehaviour
     {
         _startingAngle = GetAngleFromVectorFloat(aimDirection) + fov / 2f;
     }
+
+    public float GetAimDirection(Vector3 aimDirection)
+    {
+        return GetAngleFromVectorFloat(aimDirection);
+    }
 }

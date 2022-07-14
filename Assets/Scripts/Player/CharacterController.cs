@@ -1,10 +1,13 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rigidBody;
 
-    [SerializeField] private Transform graphics;
+    [SerializeField] private Transform 
+        graphics,
+        attackDirection;
 
     [SerializeField] private Vector3 graphicsScale;
 
@@ -17,6 +20,10 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField] private Camera cameraReference;
 
+    [SerializeField] private AnimationController animationController;
+
+    public bool isAttacking;
+    
     private Vector2
         _velocity;
 
@@ -26,6 +33,7 @@ public class CharacterController : MonoBehaviour
     private void Awake()
     {
         if (rigidBody == null) gameObject.GetComponent<Rigidbody2D>();
+        if (animationController == null) gameObject.GetComponent<AnimationController>();
         rigidBody.gravityScale = 0f;
         rigidBody.angularDrag = normalDrag;
         rigidBody.drag = normalDrag;
@@ -36,13 +44,22 @@ public class CharacterController : MonoBehaviour
         Move();
         MousePosition();
         UpdateGraphicsScale();
+        Attack();
     }
 
     private void UpdateGraphicsScale()
-    {
-        if (_mousePosition.x >= 0.01f) graphics.localScale = graphicsScale;
-        else if (_mousePosition.x <= -0.01f) graphics.localScale = new Vector3(-graphicsScale.x, graphicsScale.y, graphicsScale.z);
-
+    { 
+        if (animationController.isWalkingUp)
+        {
+            if (_mousePosition.x >= 0.01f) graphics.localScale = new Vector3(-graphicsScale.x, graphicsScale.y, graphicsScale.z);
+            else if (_mousePosition.x <= -0.01f) graphics.localScale = new Vector3(graphicsScale.x, graphicsScale.y, graphicsScale.z);
+        }
+        
+        if (animationController.isWalkingRight)
+            graphics.localScale = new Vector3(graphicsScale.x, graphicsScale.y, graphicsScale.z);
+                
+        if (animationController.isWalkingLeft)
+            graphics.localScale = new Vector3(-graphicsScale.x, graphicsScale.y, graphicsScale.z);
     }
 
     private void MousePosition()
@@ -63,6 +80,15 @@ public class CharacterController : MonoBehaviour
         _velocity *= 500 * (movementSpeed * Time.deltaTime);
 
         rigidBody.AddForce(_velocity);
+    }
+
+    private void Attack()
+    {
+        var dir = fov.GetAimDirection(_mousePosition);
+
+        attackDirection.rotation = Quaternion.Euler(0, 0, dir);
+
+        isAttacking = Input.GetButton("Fire1");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
