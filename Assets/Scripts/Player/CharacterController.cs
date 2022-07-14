@@ -4,10 +4,16 @@ public class CharacterController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rigidBody;
 
+    [SerializeField] private Transform graphics;
+
+    [SerializeField] private Vector3 graphicsScale;
+
     [SerializeField] private FOV fov;
     
     [SerializeField] private float
-        movementSpeed;
+        movementSpeed,
+        inWaterDrag,
+        normalDrag;
 
     [SerializeField] private Camera cameraReference;
 
@@ -21,14 +27,22 @@ public class CharacterController : MonoBehaviour
     {
         if (rigidBody == null) gameObject.GetComponent<Rigidbody2D>();
         rigidBody.gravityScale = 0f;
-        rigidBody.angularDrag = 8f;
-        rigidBody.drag = 8f;
+        rigidBody.angularDrag = normalDrag;
+        rigidBody.drag = normalDrag;
     }
 
     private void Update()
     {
         Move();
         MousePosition();
+        UpdateGraphicsScale();
+    }
+
+    private void UpdateGraphicsScale()
+    {
+        if (_mousePosition.x >= 0.01f) graphics.localScale = graphicsScale;
+        else if (_mousePosition.x <= -0.01f) graphics.localScale = new Vector3(-graphicsScale.x, graphicsScale.y, graphicsScale.z);
+
     }
 
     private void MousePosition()
@@ -49,21 +63,33 @@ public class CharacterController : MonoBehaviour
         _velocity *= 500 * (movementSpeed * Time.deltaTime);
 
         rigidBody.AddForce(_velocity);
-    }   
-    
-    private void OnCollisionEnter2D(Collision2D collision)
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Water"))
+        if (other.CompareTag("Water"))
         {
-            Debug.Log("IN WATER");
+            SetWaterDrag();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            ResetDrag();
         }
     }
 
     private void SetWaterDrag()
     {
+        rigidBody.drag = inWaterDrag;
+        rigidBody.angularDrag = inWaterDrag;
     }
 
     private void ResetDrag()
     {
+        rigidBody.drag = normalDrag;
+        rigidBody.angularDrag = normalDrag;
     }
 }

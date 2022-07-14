@@ -70,6 +70,7 @@ public class FOV : MonoBehaviour
         _mesh.vertices = vertices;
         _mesh.uv = uv;
         _mesh.triangles = triangles;
+        _mesh.bounds = new Bounds(origin, Vector3.one * 1000f);
     }
 
     private static Vector3 GetVectorFromAngle(float angle)
