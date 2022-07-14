@@ -68,18 +68,14 @@ public class CamerController : MonoBehaviour
     {
         if (cam == null)
         {
-            Debug.Log("!!No Camera selected, looking for main camera!!");
             cam = Camera.main;
             if (cam != null)
             {
-                Debug.Log("!!Camera not found!! Quitting application");
+                Debug.Log("!!Camera not found!! Quitting application....");
                 Application.Quit();
             }
-            else Debug.Log("Camera found and hooked!");
         }
-        else if (cam != null) Debug.Log("Camera found and hooked!");
 
         if (player == null) Debug.Log("!!No player GameObject selected, game will run, but will not follow character!");
-        else if (player != null) Debug.Log("Player found and hooked!");
     }
 }
