@@ -9,6 +9,8 @@ public class AnimationController : MonoBehaviour
 
     [SerializeField] private CharacterController player;
 
+    [SerializeField] private Stamina stamina;
+
     [SerializeField] private string
         verticalString,
         horizontalString,
@@ -23,7 +25,7 @@ public class AnimationController : MonoBehaviour
         idleRightAnimString,
         attackingAnim1String;
 
-    [SerializeField] private float[] attackLength;
+    public float[] attackLength;
 
     public bool 
         isWalkingUp,
@@ -44,14 +46,11 @@ public class AnimationController : MonoBehaviour
         
         yield return new WaitForSeconds(time);
 
-        switch (player.isAttacking)
+        while (player.isAttacking)
         {
-            case true:
-                ChangeAttackState(attackingAnim1String);
-                break;
-            case false:
-                ChangeAttackState(defaultStateString);
-                break;
+            ChangeAttackState(attackingAnim1String);
+        
+            yield return new WaitForSeconds(time);
         }
     }
 
@@ -71,7 +70,10 @@ public class AnimationController : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
-            StartCoroutine(EndAttack(attackLength[0]));
+            if (stamina.stamina > 0 && stamina.stamina - player.staminaDrain >= 0)
+            {
+                StartCoroutine(EndAttack(attackLength[0]));
+            }
         }
     }
 

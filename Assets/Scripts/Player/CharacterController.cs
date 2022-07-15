@@ -1,5 +1,6 @@
-using Unity.Mathematics;
+using System.Collections;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class CharacterController : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Transform 
         graphics,
         attackDirection;
+
+    [SerializeField] private Stamina stamina;
+
+    [SerializeField] public float staminaDrain;
 
     [SerializeField] private Vector3 graphicsScale;
 
@@ -22,7 +27,8 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField] private AnimationController animationController;
 
-    public bool isAttacking;
+    [ReadOnly] public bool
+        isAttacking;
     
     private Vector2
         _velocity;
@@ -88,7 +94,14 @@ public class CharacterController : MonoBehaviour
 
         attackDirection.rotation = Quaternion.Euler(0, 0, dir);
 
-        isAttacking = Input.GetButton("Fire1");
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (stamina.stamina > 0 && stamina.stamina - staminaDrain >= 0)
+            {
+                isAttacking = true;
+                stamina.DrainStamina(staminaDrain);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

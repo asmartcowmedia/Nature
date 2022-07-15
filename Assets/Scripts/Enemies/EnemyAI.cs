@@ -129,8 +129,8 @@ public class EnemyAI : MonoBehaviour
 
         rigidbody.AddForce(velocity);
 
-        if (rigidbody.velocity.x >= 1f) graphics.localScale = graphicsScale;
-        else if (rigidbody.velocity.x <= -1f) graphics.localScale = new Vector3(-graphicsScale.x, graphicsScale.y, graphicsScale.z);
+        if (rigidbody.velocity.x >= .5f) graphics.localScale = graphicsScale;
+        else if (rigidbody.velocity.x <= -.5f) graphics.localScale = new Vector3(-graphicsScale.x, graphicsScale.y, graphicsScale.z);
         
     }
 }
