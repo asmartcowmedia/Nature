@@ -55,6 +55,7 @@ public class CharacterController : MonoBehaviour, IDataPersistence
     //-------------------------//
     private void Awake()
     {
+        //Setting all variables initial state
         if (rigidBody == null) gameObject.GetComponent<Rigidbody2D>();
         if (animationController == null) gameObject.GetComponent<AnimationController>();
         rigidBody.gravityScale = 0f;
@@ -72,6 +73,7 @@ public class CharacterController : MonoBehaviour, IDataPersistence
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //Check if water and call water drag function
         if (other.CompareTag(waterTrigger))
         {
             SetWaterDrag();
@@ -80,6 +82,7 @@ public class CharacterController : MonoBehaviour, IDataPersistence
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        //End trigger events and reset drag
         if (other.CompareTag(waterTrigger))
         {
             ResetDrag();
