@@ -1,10 +1,10 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 [System.Serializable]
 public class GameData
 {
+    //Variables to save
     public float 
         health,
         cameraZoom;
@@ -13,8 +13,10 @@ public class GameData
         playerPosition,
         cameraPosition;
 
+    //Dictionary for all saved data
     [FormerlySerializedAs("CollectablesCollected")] public SerializableDictionary<string, bool> collectablesCollected;
-
+    
+    //publically callable function to retrieve base gamedata
     public GameData()
     {
         health = 100;

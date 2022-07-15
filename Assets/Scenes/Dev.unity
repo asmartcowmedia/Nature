@@ -1714,9 +1714,9 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
+  - component: {fileID: 519420034}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
-  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1804,13 +1804,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08194b3dcb2c60347a984f35d1472da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomSensitivity: 10
-  initialZoomDistance: 140
-  camLagSpeed: 0.97
-  camParalaxLayer: -5
-  zoomClamp: {x: 50, y: 160}
   cam: {fileID: 519420031}
   player: {fileID: 1119276768}
+  zoomSensitivity: 10
+  initialZoomDistance: 140
+  zoomClamp: {x: 50, y: 160}
+  camLagSpeed: 0.97
+  camParalaxLayer: -5
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29827,18 +29827,18 @@ MonoBehaviour:
   rigidBody: {fileID: 1119276773}
   graphics: {fileID: 950327590}
   attackDirection: {fileID: 988742833}
+  fov: {fileID: 261900627}
+  cameraReference: {fileID: 519420031}
+  animationController: {fileID: 1119276775}
   stamina: {fileID: 1119276777}
   staminaDrain: 20
-  graphicsScale: {x: 1.5, y: 1.5, z: 1}
-  fov: {fileID: 261900627}
   movementSpeed: 10
   inWaterDrag: 25
   normalDrag: 10
-  cameraReference: {fileID: 519420031}
-  animationController: {fileID: 1119276775}
+  waterTrigger: Water
   attackDamage: 0
   isAttacking: 0
-  waterTrigger: Water
+  graphicsScale: {x: 1.5, y: 1.5, z: 1}
 --- !u!4 &1119276771
 Transform:
   m_ObjectHideFlags: 0
@@ -29942,11 +29942,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1119276768}
-  sprite: {fileID: 950327589}
-  maxHealth: 100
   healthBar: {fileID: 1955542570}
   healthBarFill: {fileID: 106473482}
   healthBarText: {fileID: 1016468259}
+  sprite: {fileID: 950327589}
+  maxHealth: 100
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   damageGrowMultiplier: 1.2
 --- !u!114 &1119276777
@@ -29961,12 +29961,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea677cee09129a41a13c564317e0084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStamina: 100
-  staminaRegenAmount: 0.5
-  stamina: 0
   staminaBar: {fileID: 298390501}
   staminaBarFill: {fileID: 1970821535}
   staminaBarText: {fileID: 434086216}
+  maxStamina: 100
+  staminaRegenAmount: 0.5
+  stamina: 0
 --- !u!1001 &1125341049
 PrefabInstance:
   m_ObjectHideFlags: 0

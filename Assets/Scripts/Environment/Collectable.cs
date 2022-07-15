@@ -3,6 +3,8 @@ using Sirenix.OdinInspector;
 
 public class Collectables : MonoBehaviour, IDataPersistence
 {
+    //!! NOT SET UP YET!!\\
+    
     [ShowInInspector][ReadOnly] private string id;
 
     [ContextMenu("Generate GUID for ID")]

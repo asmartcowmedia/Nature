@@ -1,45 +1,54 @@
 using System.Collections;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class AnimationController : MonoBehaviour
 {
-    [SerializeField] private Animator 
-        animator,
-        attacker;
+      //----------------------------------------//
+     // Exposed Variables (Editable in editor) //
+    //----------------------------------------//
+    [FoldoutGroup("Attachable Objects")][Title("Animators")][SerializeField] private Animator animator;
+    [FoldoutGroup("Attachable Objects")][SerializeField] private Animator attacker;
 
-    [SerializeField] private CharacterController player;
+    [FoldoutGroup("Attachable Objects")][Title("Character Controller")][SerializeField] private CharacterController player;
 
-    [SerializeField] private GameObject attackTrigger;
+    [FoldoutGroup("Attachable Objects")][Title("GameObjects")][SerializeField] private GameObject attackTrigger;
 
-    [SerializeField] private Stamina stamina;
+    [FoldoutGroup("Attachable Objects")][Title("Stamina")][SerializeField] private Stamina stamina;
 
-    [SerializeField] private string
-        verticalString,
-        horizontalString,
-        defaultStateString,
-        walkUpAnimString,
-        walkDownAnimString,
-        walkRightAnimString,
-        walkLeftAnimString,
-        idleDownAnimString,
-        idleUpAnimString,
-        idleLeftAnimString,
-        idleRightAnimString,
-        attackingAnim1String;
+    [FoldoutGroup("Variables")][Title("Animation Strings")][SerializeField] private string verticalString;
+    [FoldoutGroup("Variables")][SerializeField] private string horizontalString;
+    [FoldoutGroup("Variables")][SerializeField] private string defaultStateString;
+    [FoldoutGroup("Variables")][SerializeField] private string walkUpAnimString;
+    [FoldoutGroup("Variables")][SerializeField] private string walkDownAnimString;
+    [FoldoutGroup("Variables")][SerializeField] private string walkRightAnimString;
+    [FoldoutGroup("Variables")][SerializeField] private string walkLeftAnimString;
+    [FoldoutGroup("Variables")][SerializeField] private string idleDownAnimString;
+    [FoldoutGroup("Variables")][SerializeField] private string idleUpAnimString;
+    [FoldoutGroup("Variables")][SerializeField] private string idleLeftAnimString;
+    [FoldoutGroup("Variables")][SerializeField] private string idleRightAnimString;
+    [FoldoutGroup("Variables")][SerializeField] private string attackingAnim1String;
 
-    public float[] attackLength;
+    [FoldoutGroup("Public Variables")][Title("Animation Variables")] public float[] attackLength;
 
-    public bool 
-        isWalkingUp,
-        isWalkingRight,
-        isWalkingLeft,
-        isIdle;
-
+    [FoldoutGroup("Public Variables")][Title("Bools")] public bool isWalkingUp;
+    [FoldoutGroup("Public Variables")] public bool isWalkingRight;
+    [FoldoutGroup("Public Variables")] public bool isWalkingLeft;
+    [FoldoutGroup("Public Variables")] public bool isIdle;
+    //----------------------------------------//
+    
+      //------------------------------------------------//
+     // Non-Exposed Variables (Not Editable in editor) //
+    //------------------------------------------------//
     private string
         animationName,
         currentState,
         currentAttackState;
-
+    //----------------------------------------//
+    
+      //-----------------------//
+     // IEnumerator Functions //
+    //-----------------------//
     private IEnumerator EndAttack(float time)
     {
         yield return new WaitForSeconds(time);
@@ -47,9 +56,14 @@ public class AnimationController : MonoBehaviour
         attacker.SetBool(attackingAnim1String, false);
         attackTrigger.SetActive(false);
     }
+    //----------------------------------------//
 
+      //-------------------------//
+     // Default Unity Functions //
+    //-------------------------//
     private void Awake()
     {
+        //Set default values
         if (animator == null) Debug.Log("Animation controller not selected, please do so in the AnimationController.cs!!");
         if (player == null) Debug.Log("Animation controller not selected, please do so in the CharacterController.cs!!");
     }
@@ -59,9 +73,15 @@ public class AnimationController : MonoBehaviour
         UpdateAnimStates();
         UpdateAttackStates();
     }
+    //----------------------------------------//
 
+      //------------------//
+     // Custom Functions //
+    //------------------//
+    //Function to update the attack states in the animator
     private void UpdateAttackStates()
     {
+        //If mouse1 is pressed, check stamina, and set the attack trigger to true so the animation plays and use the end attack ienumerator to set a delay for next attack.
         if (Input.GetButton("Fire1"))
         {
             if (stamina.stamina > 0 && stamina.stamina - (player.staminaDrain-5) >= 0)
@@ -74,13 +94,18 @@ public class AnimationController : MonoBehaviour
         }
     }
 
+    //Function (state machine) to update animation states for movement
     private void UpdateAnimStates()
     {
+        //Set variables for vertical and horizontal movement for animator
         var vertical = Input.GetAxis("Vertical") * 100;
         var horizontal = Input.GetAxis("Horizontal") * 100;
         
+        //set the vert and hor floats within the animator
         animator.SetFloat(verticalString, vertical);
         animator.SetFloat(horizontalString, horizontal);
+        
+        //If the vertical movement is non-existent (no up/down movement) then use left/right walk anims
         if (vertical == 0)
         {
             switch (horizontal)
@@ -98,6 +123,7 @@ public class AnimationController : MonoBehaviour
             }
         }
 
+        //If the vertical movement is there, use up/down walk anims
         switch (vertical)
         {
             case > 0:
@@ -112,9 +138,11 @@ public class AnimationController : MonoBehaviour
                 break;
         }
 
+        //If there is either vertical OR horizontal movement, set idle to false
         if (vertical > 0 && horizontal > 0)
             isIdle = false;
 
+        //If there is no movement, set idle to true and us the last directional stimulus to determine idle direction animation
         if (vertical == 0 && horizontal == 0)
         {
             isIdle = true;
@@ -137,6 +165,7 @@ public class AnimationController : MonoBehaviour
         }
     }
 
+    //Function (state machine) to change animation state, just pushes all updates to the animator for the state to change
     private void ChangeAnimationState(string state)
     {
         if (currentState == state) return;

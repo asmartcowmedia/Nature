@@ -1,44 +1,58 @@
-using System;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class CamerController : MonoBehaviour, IDataPersistence
 {
-    [SerializeField] private float
-        zoomSensitivity, 
-        initialZoomDistance,
-        camLagSpeed,
-        camParalaxLayer;
-
-    [SerializeField] private Vector2
-        zoomClamp;
-
-    [SerializeField] private Camera cam;
-
-    [SerializeField] private GameObject player;
+      //----------------------------------------//
+     // Exposed Variables (Editable in editor) //
+    //----------------------------------------//
+    [FoldoutGroup("Attachable Objects")][Title("Camera")][SerializeField] private Camera cam;
     
-    private float
-        _currentZoom;
+    [FoldoutGroup("Attachable Objects")][Title("GameObjects")][SerializeField] private GameObject player;
+
+    [FoldoutGroup("Variables")][Title("Zoom")][SerializeField] private float zoomSensitivity;
+    [FoldoutGroup("Variables")][SerializeField] private float initialZoomDistance;
+    [FoldoutGroup("Variables")][SerializeField] private Vector2 zoomClamp;
     
+    [FoldoutGroup("Variables")][Title("Speed")][SerializeField] private float camLagSpeed;
+    
+    [FoldoutGroup("Variables")][Title("Layers")][SerializeField] private float camParalaxLayer;
+    //----------------------------------------//
+    
+      //------------------------------------------------//
+     // Non-Exposed Variables (Not Editable in editor) //
+    //------------------------------------------------//
+    private float currentZoom;
+    //----------------------------------------//
+    
+      //---------------------//
+     // Save/Load Functions //
+    //---------------------//
     public void LoadData(GameData data)
     {
         transform.position = data.cameraPosition;
-        _currentZoom = data.cameraZoom;
+        currentZoom = data.cameraZoom;
         initialZoomDistance = data.cameraZoom;
     }
 
     public void SaveData(ref GameData data)
     {
         data.cameraPosition = transform.position;
-        data.cameraZoom = _currentZoom;
+        data.cameraZoom = currentZoom;
     }
+    //----------------------------------------//
 
-
+      //-------------------------//
+     // Default Unity Functions //
+    //-------------------------//
     private void Start()
     {
+        //Checks for any errors
         ErrorChecks();
         
+        //Sets default variable stats
         zoomSensitivity *= 500;
-        _currentZoom = initialZoomDistance;
+        currentZoom = initialZoomDistance;
     }
 
     private void Update()
@@ -46,9 +60,15 @@ public class CamerController : MonoBehaviour, IDataPersistence
         Follow();
         Zoom();
 
-        if (Input.GetButton("Fire3")) _currentZoom = initialZoomDistance;
+        //If press middle mouse, reset zoom distance
+        if (Input.GetButton("Fire3")) currentZoom = initialZoomDistance;
     }
+    //----------------------------------------//
 
+      //------------------//
+     // Custom Functions //
+    //------------------//
+    //Function to follow the player character
     private void Follow()
     {
         var camPos = transform.position;
@@ -61,23 +81,25 @@ public class CamerController : MonoBehaviour, IDataPersistence
         transform.position = camPos;
     }
 
+    //Function to zoom with mouse scroll
     private void Zoom()
     {
         var pos = transform.position;
-        _currentZoom -= Input.GetAxis("Mouse ScrollWheel") * (zoomSensitivity * Time.deltaTime);
+        currentZoom -= Input.GetAxis("Mouse ScrollWheel") * (zoomSensitivity * Time.deltaTime);
 
-        if (_currentZoom >= zoomClamp.y)
+        if (currentZoom >= zoomClamp.y)
         {
-            _currentZoom = zoomClamp.y;
+            currentZoom = zoomClamp.y;
         }
-        if (_currentZoom <= zoomClamp.x)
+        if (currentZoom <= zoomClamp.x)
         {
-            _currentZoom = zoomClamp.x;
+            currentZoom = zoomClamp.x;
         }
         
-        cam.fieldOfView = _currentZoom;
+        cam.fieldOfView = currentZoom;
     }
 
+    //Function to run checks to make sure things happen right
     private void ErrorChecks()
     {
         if (cam == null)
