@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04668bdffa35f574aaf1d8d43fbc51db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 0
+  damageAmount: 10
   intervalTimer: 0.25
   intervalDamage: 1
 --- !u!1 &2692400654675187302
@@ -305,11 +305,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c07ed5689bdc0448b58cb651ef6f67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  enemy: {fileID: 0}
+  sprite: {fileID: 2692400653803871665}
+  enemy: {fileID: 2692400654675187303}
   takeDamageAmount: 5
   maxHealth: 50
-  damageGrowMultiplier: 0
+  damageGrowMultiplier: 1.2
   damageColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &2692400655021660752
 GameObject:

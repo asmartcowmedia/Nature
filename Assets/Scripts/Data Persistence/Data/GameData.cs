@@ -17,7 +17,7 @@ public class GameData
 
     public GameData()
     {
-        health = 50;
+        health = 100;
         playerPosition = Vector3.zero;
         cameraPosition = new Vector3(0, 0, -5);
         cameraZoom = 0;
