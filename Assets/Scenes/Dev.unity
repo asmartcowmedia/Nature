@@ -421,6 +421,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigFog (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9087682143668026668, guid: a25facad8382a874e83fb92bba257b4f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 9087682143668026669, guid: a25facad8382a874e83fb92bba257b4f, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -31407,7 +31411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1966715465
 Transform:
   m_ObjectHideFlags: 0
@@ -31898,6 +31902,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2692400653803871670, guid: 6f4d873c4e50f3043a3a03560196913f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2692400654675187299, guid: 6f4d873c4e50f3043a3a03560196913f, type: 3}
       propertyPath: m_RootOrder
       value: 5
