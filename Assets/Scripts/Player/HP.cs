@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Globalization;
 using UnityEngine;
@@ -30,7 +31,6 @@ public class HP : MonoBehaviour, IDataPersistence
     private Vector3 defaultSize;
 
     private CharacterController controller;
-
 
     public void LoadData(GameData data)
     {

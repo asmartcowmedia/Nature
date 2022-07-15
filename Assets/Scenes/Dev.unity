@@ -29838,6 +29838,7 @@ MonoBehaviour:
   animationController: {fileID: 1119276775}
   attackDamage: 0
   isAttacking: 0
+  waterTrigger: Water
 --- !u!4 &1119276771
 Transform:
   m_ObjectHideFlags: 0
@@ -32127,6 +32128,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3573160555099847579, guid: 42a2a7f9e38639e4a8bc7734d02638e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3573160555099847580, guid: 42a2a7f9e38639e4a8bc7734d02638e0, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

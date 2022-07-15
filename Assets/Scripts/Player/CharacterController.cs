@@ -3,40 +3,42 @@ using Sirenix.OdinInspector;
 
 public class CharacterController : MonoBehaviour, IDataPersistence
 {
-    [SerializeField] private Rigidbody2D rigidBody;
+      //----------------------------------------//
+     // Exposed Variables (Editable in editor) //
+    //----------------------------------------//
+    [FoldoutGroup("Attachable Objects")][Title("Rigidbodies")][SerializeField] private Rigidbody2D rigidBody;
 
-    [SerializeField] private Transform 
-        graphics,
-        attackDirection;
+    [FoldoutGroup("Attachable Objects")][Title("Transforms")][SerializeField] private Transform graphics;
+    [FoldoutGroup("Attachable Objects")][SerializeField] private Transform attackDirection;
 
-    [SerializeField] private Stamina stamina;
+    [FoldoutGroup("Attachable Objects")][Title("Other")][SerializeField] private FOV fov;
+    [FoldoutGroup("Attachable Objects")][SerializeField] private Camera cameraReference;
+    [FoldoutGroup("Attachable Objects")][SerializeField] private AnimationController animationController;
 
-    [SerializeField] public float staminaDrain;
+    [FoldoutGroup("Player Variables")][Title("Stamina")][SerializeField] private Stamina stamina;
+    [FoldoutGroup("Player Variables")][SerializeField] public float staminaDrain;
 
-    [SerializeField] public Vector3 graphicsScale;
-
-    [SerializeField] private FOV fov;
+    [FoldoutGroup("Player Variables")][Title("Movement")][SerializeField] private float movementSpeed;
+    [FoldoutGroup("Player Variables")][SerializeField] private float inWaterDrag;
+    [FoldoutGroup("Player Variables")][SerializeField] private float normalDrag;
+    [FoldoutGroup("Player Variables")][SerializeField] private string waterTrigger;
     
-    [SerializeField] private float
-        movementSpeed,
-        inWaterDrag,
-        normalDrag;
+    [FoldoutGroup("Player Variables")][Title("Attacking")][SerializeField] public float attackDamage;
+    [FoldoutGroup("Player Variables")][ReadOnly] public bool isAttacking;
 
-    [SerializeField] private Camera cameraReference;
-
-    [SerializeField] private AnimationController animationController;
-
-    [SerializeField] public float attackDamage;
+    [FoldoutGroup("Graphics")][SerializeField] public Vector3 graphicsScale;
+    //----------------------------------------//
     
-    [ReadOnly] public bool
-        isAttacking;
+      //-------------------------------------------------//
+     // Non-Exposed Variables (Not Editable in editor) //
+    //-----------------------------------------------//
+    private Vector2 velocity;
+    private Vector3 mousePosition;
+    //----------------------------------------//
     
-    private Vector2
-        _velocity;
-
-    private Vector3
-        _mousePosition;
-    
+      //---------------------------//
+     // Save/Load Data Functions //
+    //-------------------------//
     public void LoadData(GameData data)
     {
         transform.position = data.playerPosition;
@@ -46,7 +48,11 @@ public class CharacterController : MonoBehaviour, IDataPersistence
     {
         data.playerPosition = transform.position;
     }
+    //----------------------------------------//
 
+      //-------------------------//
+     // Default Unity Functions //
+    //-------------------------//
     private void Awake()
     {
         if (rigidBody == null) gameObject.GetComponent<Rigidbody2D>();
@@ -64,12 +70,33 @@ public class CharacterController : MonoBehaviour, IDataPersistence
         Attack();
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag(waterTrigger))
+        {
+            SetWaterDrag();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag(waterTrigger))
+        {
+            ResetDrag();
+        }
+    }
+    //----------------------------------------//
+
+      //------------------//
+     // Custom Functions //
+    //------------------//
+    //Function to update the graphics scale determined by mouse position to flip character animations and sprite
     private void UpdateGraphicsScale()
     { 
         if (animationController.isWalkingUp)
         {
-            if (_mousePosition.x >= 0.01f) graphics.localScale = new Vector3(-graphicsScale.x, graphicsScale.y, graphicsScale.z);
-            else if (_mousePosition.x <= -0.01f) graphics.localScale = new Vector3(graphicsScale.x, graphicsScale.y, graphicsScale.z);
+            if (mousePosition.x >= 0.01f) graphics.localScale = new Vector3(-graphicsScale.x, graphicsScale.y, graphicsScale.z);
+            else if (mousePosition.x <= -0.01f) graphics.localScale = new Vector3(graphicsScale.x, graphicsScale.y, graphicsScale.z);
         }
         
         if (animationController.isWalkingRight)
@@ -79,32 +106,41 @@ public class CharacterController : MonoBehaviour, IDataPersistence
             graphics.localScale = new Vector3(-graphicsScale.x, graphicsScale.y, graphicsScale.z);
     }
 
+    //Function to capture mouse position and translate it to world space for use in other functionality
     private void MousePosition()
     {
-        _mousePosition = cameraReference.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cameraReference.transform.position.z * -1));
-        _mousePosition = transform.InverseTransformPoint(_mousePosition);
+        mousePosition = cameraReference.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cameraReference.transform.position.z * -1));
+        mousePosition = transform.InverseTransformPoint(mousePosition);
         
-        fov.SetAimDirection(_mousePosition);
+        fov.SetAimDirection(mousePosition);
         fov.SetOrigin(transform.position);
     }
 
+    //Character Movement Function
     private void Move()
     {
-        _velocity.x = Input.GetAxis("Horizontal");
-        _velocity.y = Input.GetAxis("Vertical");
+        //Gets the velocity from the X and Y Axis of the Unity input system. This corresponds to WASD keys
+        velocity.x = Input.GetAxis("Horizontal");
+        velocity.y = Input.GetAxis("Vertical");
 
-        _velocity.Normalize();
-        _velocity *= 500 * (movementSpeed * Time.deltaTime);
+        //Normalize the velocity so that diagonal movement is not faster than horizontal or vertical
+        velocity.Normalize();
+        velocity *= 500 * (movementSpeed * Time.deltaTime);
 
-        rigidBody.AddForce(_velocity);
+        //Add the velocity to the rigidbody, moving character along desired direction
+        rigidBody.AddForce(velocity);
     }
 
+    //Character Attack Function
     private void Attack()
     {
-        var dir = fov.GetAimDirection(_mousePosition);
+        //Get aim direction from mouse input
+        var dir = fov.GetAimDirection(mousePosition);
 
+        //Mak the attack direction the actual rotation
         attackDirection.rotation = Quaternion.Euler(0, 0, dir);
 
+        //When hitting mouse1 ("Fire1") check if has enough stamina and set attack to true and drain stamina proportionately
         if (Input.GetButtonDown("Fire1"))
         {
             if (stamina.stamina > 0 && stamina.stamina - staminaDrain >= 0)
@@ -115,28 +151,14 @@ public class CharacterController : MonoBehaviour, IDataPersistence
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Water"))
-        {
-            SetWaterDrag();
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Water"))
-        {
-            ResetDrag();
-        }
-    }
-
+    //Function to set the drag of the character rigidbody to a desired drag in water
     private void SetWaterDrag()
     {
         rigidBody.drag = inWaterDrag;
         rigidBody.angularDrag = inWaterDrag;
     }
 
+    //Function to reset the drag to default
     private void ResetDrag()
     {
         rigidBody.drag = normalDrag;
