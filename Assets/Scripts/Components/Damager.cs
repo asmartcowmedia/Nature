@@ -25,15 +25,21 @@ public class Damager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        playerHp = other.gameObject.GetComponent<HP>();
+        if (other.CompareTag("Player"))
+        {
+            playerHp = other.gameObject.GetComponent<HP>();
         
-        interval = intervalDamage;
+            interval = intervalDamage;
         
-        StartCoroutine(DamageOverTime(intervalTimer));
+            StartCoroutine(DamageOverTime(intervalTimer));
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        interval = false;
+        if (other.CompareTag("Player"))
+        {
+            interval = false;
+        }
     }
 }

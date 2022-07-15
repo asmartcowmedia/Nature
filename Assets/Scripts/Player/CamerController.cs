@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class CamerController : MonoBehaviour
+public class CamerController : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private float
         zoomSensitivity, 
@@ -18,6 +18,20 @@ public class CamerController : MonoBehaviour
     
     private float
         _currentZoom;
+    
+    public void LoadData(GameData data)
+    {
+        transform.position = data.cameraPosition;
+        _currentZoom = data.cameraZoom;
+        initialZoomDistance = data.cameraZoom;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.cameraPosition = transform.position;
+        data.cameraZoom = _currentZoom;
+    }
+
 
     private void Start()
     {

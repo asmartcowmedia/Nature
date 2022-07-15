@@ -9,6 +9,8 @@ public class AnimationController : MonoBehaviour
 
     [SerializeField] private CharacterController player;
 
+    [SerializeField] private GameObject attackTrigger;
+
     [SerializeField] private Stamina stamina;
 
     [SerializeField] private string
@@ -38,20 +40,12 @@ public class AnimationController : MonoBehaviour
         currentState,
         currentAttackState;
 
-    private bool resetEnum;
-
     private IEnumerator EndAttack(float time)
     {
-        ChangeAttackState(attackingAnim1String);
-        
         yield return new WaitForSeconds(time);
-
-        while (player.isAttacking)
-        {
-            ChangeAttackState(attackingAnim1String);
         
-            yield return new WaitForSeconds(time);
-        }
+        attacker.SetBool(attackingAnim1String, false);
+        attackTrigger.SetActive(false);
     }
 
     private void Awake()
@@ -60,7 +54,7 @@ public class AnimationController : MonoBehaviour
         if (player == null) Debug.Log("Animation controller not selected, please do so in the CharacterController.cs!!");
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         UpdateAnimStates();
         UpdateAttackStates();
@@ -70,9 +64,12 @@ public class AnimationController : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
-            if (stamina.stamina > 0 && stamina.stamina - player.staminaDrain >= 0)
+            if (stamina.stamina > 0 && stamina.stamina - (player.staminaDrain-5) >= 0)
             {
-                StartCoroutine(EndAttack(attackLength[0]));
+                attackTrigger.SetActive(true);
+                attacker.SetBool(attackingAnim1String, true);
+
+                StartCoroutine(EndAttack(.4f));
             }
         }
     }
@@ -147,14 +144,5 @@ public class AnimationController : MonoBehaviour
         animator.Play(state, 0);
 
         currentState = state;
-    }
-
-    private void ChangeAttackState(string state)
-    {
-        if (currentAttackState == state) return;
-
-        attacker.PlayInFixedTime(state, 0);
-
-        currentAttackState = state;
     }
 }

@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] private Transform graphics;
 
-    [SerializeField] private Vector3
+    [SerializeField] public Vector3
         graphicsScale;
 
     [SerializeField] private float

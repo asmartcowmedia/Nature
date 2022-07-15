@@ -1,8 +1,7 @@
-using System.Collections;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-public class CharacterController : MonoBehaviour
+public class CharacterController : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private Rigidbody2D rigidBody;
 
@@ -14,7 +13,7 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField] public float staminaDrain;
 
-    [SerializeField] private Vector3 graphicsScale;
+    [SerializeField] public Vector3 graphicsScale;
 
     [SerializeField] private FOV fov;
     
@@ -27,6 +26,8 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField] private AnimationController animationController;
 
+    [SerializeField] public float attackDamage;
+    
     [ReadOnly] public bool
         isAttacking;
     
@@ -35,6 +36,16 @@ public class CharacterController : MonoBehaviour
 
     private Vector3
         _mousePosition;
+    
+    public void LoadData(GameData data)
+    {
+        transform.position = data.playerPosition;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.playerPosition = transform.position;
+    }
 
     private void Awake()
     {

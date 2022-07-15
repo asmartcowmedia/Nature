@@ -10,6 +10,8 @@ public class Stamina : MonoBehaviour
     
     [SerializeField] private float maxStamina;
 
+    [SerializeField] private float staminaRegenAmount;
+
     [ShowInInspector][ReadOnly] public float stamina;
 
     [SerializeField] private GameObject staminaBar;
@@ -18,17 +20,17 @@ public class Stamina : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI staminaBarText;
 
-    private readonly WaitForSeconds regenTick = new WaitForSeconds(1f);
+    private readonly WaitForSeconds regenTick = new WaitForSeconds(.2f);
 
     private Coroutine regen;
 
     private IEnumerator RegenStamina()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
 
         while (stamina < maxStamina)
         {
-            stamina += maxStamina / 100;
+            stamina += staminaRegenAmount;
 
             staminaBarFill.value = stamina;
             
