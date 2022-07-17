@@ -7,6 +7,8 @@ public class CharacterController : MonoBehaviour, IDataPersistence
      // Exposed Variables (Editable in editor) //
     //----------------------------------------//
     [FoldoutGroup("Attachable Objects")][Title("Rigidbodies")][SerializeField] private Rigidbody2D rigidBody;
+    
+    [FoldoutGroup("Attachable Objects")][Title("Rigidbodies")][SerializeField] private InventoryUI inventoryUI;
 
     [FoldoutGroup("Attachable Objects")][Title("Transforms")][SerializeField] private Transform graphics;
     [FoldoutGroup("Attachable Objects")][SerializeField] private Transform attackDirection;
@@ -27,6 +29,8 @@ public class CharacterController : MonoBehaviour, IDataPersistence
     [FoldoutGroup("Player Variables")][ReadOnly] public bool isAttacking;
 
     [FoldoutGroup("Graphics")][SerializeField] public Vector3 graphicsScale;
+
+    [FoldoutGroup("Inventory")][ShowInInspector][ReadOnly] private Inventory inventory;
     //----------------------------------------//
     
       //-------------------------------------------------//
@@ -61,6 +65,9 @@ public class CharacterController : MonoBehaviour, IDataPersistence
         rigidBody.gravityScale = 0f;
         rigidBody.angularDrag = normalDrag;
         rigidBody.drag = normalDrag;
+
+        inventory = new Inventory();
+        inventoryUI.SetInventory(inventory);
     }
 
     private void Update()

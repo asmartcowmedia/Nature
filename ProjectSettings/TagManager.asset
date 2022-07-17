@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Water
   - PlayerAttack
+  - Pickup
   layers:
   - Default
   - TransparentFX
