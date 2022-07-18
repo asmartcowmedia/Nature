@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using UnityEngine.InputSystem;
 
 public class AnimationController : MonoBehaviour
 {
@@ -46,6 +48,10 @@ public class AnimationController : MonoBehaviour
         animationName,
         currentState,
         currentAttackState;
+    private PlayerControls input;
+    private InputAction
+        move,
+        fire1;
     //----------------------------------------//
     
       //-----------------------//
@@ -63,8 +69,26 @@ public class AnimationController : MonoBehaviour
       //-------------------------//
      // Default Unity Functions //
     //-------------------------//
+
+    private void OnEnable()
+    {
+        move = input.Player.Move;
+        fire1 = input.Player.Fire;
+        
+        move.Enable();
+        fire1.Enable();
+    }
+
+    private void OnDisable()
+    {
+        move.Disable();
+        fire1.Disable();
+    }
+    
     private void Awake()
     {
+        input = new PlayerControls();
+        
         //Set default values
         if (animator == null) Debug.Log("Animation controller not selected, please do so in the AnimationController.cs!!");
         if (player == null) Debug.Log("Animation controller not selected, please do so in the CharacterController.cs!!");
@@ -84,7 +108,7 @@ public class AnimationController : MonoBehaviour
     private void UpdateAttackStates()
     {
         //If mouse1 is pressed, check stamina, and set the attack trigger to true so the animation plays and use the end attack ienumerator to set a delay for next attack.
-        if (Input.GetButtonDown("Fire1") && !UI.IsPointerOverUIElement()) // Also checks if over ui before playing animation
+        if (fire1.WasPerformedThisFrame() && !UI.IsPointerOverUIElement()) // Also checks if over ui before playing animation
         {
             if (stamina.stamina > 0 && stamina.stamina - (player.staminaDrain-5) >= 0)
             {
@@ -100,8 +124,8 @@ public class AnimationController : MonoBehaviour
     private void UpdateAnimStates()
     {
         //Set variables for vertical and horizontal movement for animator
-        var vertical = Input.GetAxis("Vertical") * 100;
-        var horizontal = Input.GetAxis("Horizontal") * 100;
+        var horizontal = move.ReadValue<Vector2>().x * 100;
+        var vertical = move.ReadValue<Vector2>().y * 100;
         
         //set the vert and hor floats within the animator
         animator.SetFloat(verticalString, vertical);

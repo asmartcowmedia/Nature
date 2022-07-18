@@ -1,5 +1,8 @@
+using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
+using UnityEngine.InputSystem;
 
 public class CamerController : MonoBehaviour, IDataPersistence
 {
@@ -23,6 +26,10 @@ public class CamerController : MonoBehaviour, IDataPersistence
      // Non-Exposed Variables (Not Editable in editor) //
     //------------------------------------------------//
     private float currentZoom;
+    private PlayerControls input;
+    private InputAction
+        zoom,
+        resetZoom;
     //----------------------------------------//
     
       //---------------------//
@@ -45,13 +52,32 @@ public class CamerController : MonoBehaviour, IDataPersistence
       //-------------------------//
      // Default Unity Functions //
     //-------------------------//
+    private void OnEnable()
+    {
+        zoom = input.UI.ScrollWheel;
+        zoom.Enable();
+
+        resetZoom = input.UI.MiddleClick;
+        resetZoom.Enable();
+    }
+
+    private void OnDisable()
+    {
+        zoom.Disable();
+        resetZoom.Disable();
+    }
+
+    private void Awake()
+    {
+        input = new PlayerControls();
+    }
+
     private void Start()
     {
         //Checks for any errors
         ErrorChecks();
         
         //Sets default variable stats
-        zoomSensitivity *= 500;
         currentZoom = initialZoomDistance;
     }
 
@@ -61,7 +87,7 @@ public class CamerController : MonoBehaviour, IDataPersistence
         Zoom();
 
         //If press middle mouse, reset zoom distance
-        if (Input.GetButton("Fire3")) currentZoom = initialZoomDistance;
+        if (resetZoom.WasPerformedThisFrame()) currentZoom = initialZoomDistance;
     }
     //----------------------------------------//
 
@@ -85,7 +111,7 @@ public class CamerController : MonoBehaviour, IDataPersistence
     private void Zoom()
     {
         var pos = transform.position;
-        currentZoom -= Input.GetAxis("Mouse ScrollWheel") * (zoomSensitivity * Time.deltaTime);
+        currentZoom -= zoom.ReadValue<Vector2>().y * (zoomSensitivity * Time.deltaTime);
 
         if (currentZoom >= zoomClamp.y)
         {

@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using UnityEngine.InputSystem;
 
 public class CharacterController : MonoBehaviour, IDataPersistence
 {
@@ -46,6 +48,11 @@ public class CharacterController : MonoBehaviour, IDataPersistence
     //-----------------------------------------------//
     private Vector2 velocity;
     private Vector3 mousePosition;
+    private PlayerControls input;
+    private InputAction
+        move,
+        fire1,
+        MouseReferencePosition;
     //----------------------------------------//
     
       //---------------------------//
@@ -65,9 +72,29 @@ public class CharacterController : MonoBehaviour, IDataPersistence
       //-------------------------//
      // Default Unity Functions //
     //-------------------------//
+    private void OnEnable()
+    {
+        move = input.Player.Move;
+        fire1 = input.Player.Fire;
+        MouseReferencePosition = input.Player.MousePosition;
+        
+        fire1.Enable();
+        move.Enable();
+        MouseReferencePosition.Enable();
+    }
+
+    private void OnDisable()
+    {
+        fire1.Disable();
+        move.Disable();
+        MouseReferencePosition.Disable();
+    }
+
     private void Awake()
     {
         //Setting all variables initial state
+        input = new PlayerControls();
+        
         if (rigidBody == null) gameObject.GetComponent<Rigidbody2D>();
         if (animationController == null) gameObject.GetComponent<AnimationController>();
         rigidBody.gravityScale = 0f;
@@ -127,7 +154,7 @@ public class CharacterController : MonoBehaviour, IDataPersistence
     //Function to capture mouse position and translate it to world space for use in other functionality
     private void MousePosition()
     {
-        mousePosition = cameraReference.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cameraReference.transform.position.z * -1));
+        mousePosition = cameraReference.ScreenToWorldPoint(new Vector3(MouseReferencePosition.ReadValue<Vector2>().x, MouseReferencePosition.ReadValue<Vector2>().y, cameraReference.transform.position.z * -1));
         mousePosition = transform.InverseTransformPoint(mousePosition);
         
         fov.SetAimDirection(mousePosition);
@@ -138,8 +165,10 @@ public class CharacterController : MonoBehaviour, IDataPersistence
     private void Move()
     {
         //Gets the velocity from the X and Y Axis of the Unity input system. This corresponds to WASD keys
-        velocity.x = Input.GetAxis("Horizontal");
-        velocity.y = Input.GetAxis("Vertical");
+        // velocity.x = Input.GetAxis("Horizontal");
+        // velocity.y = Input.GetAxis("Vertical");
+        velocity.x = move.ReadValue<Vector2>().x;
+        velocity.y = move.ReadValue<Vector2>().y;
 
         //Normalize the velocity so that diagonal movement is not faster than horizontal or vertical
         velocity.Normalize();
@@ -159,7 +188,7 @@ public class CharacterController : MonoBehaviour, IDataPersistence
         attackDirection.rotation = Quaternion.Euler(0, 0, dir);
 
         //When hitting mouse1 ("Fire1") check if has enough stamina and set attack to true and drain stamina proportionately
-        if (Input.GetButtonDown("Fire1") && !UI.IsPointerOverUIElement()) // Now, also checks if mouse is over UI or not before attacking
+        if (fire1.WasPressedThisFrame() && !UI.IsPointerOverUIElement()) // Now, also checks if mouse is over UI or not before attacking
         {
             if (stamina.stamina > 0 && stamina.stamina - staminaDrain >= 0)
             {
