@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEngine.InputSystem;
@@ -40,7 +39,8 @@ public class CharacterController : MonoBehaviour, IDataPersistence
         isHoldingInfectedMachete,
         isHoldingHeadlamp,
         isHoldingMap,
-        isHoldingInfectedMap;
+        isHoldingInfectedMap,
+        headlampToggle;
     //----------------------------------------//
     
       //-------------------------------------------------//
@@ -202,7 +202,9 @@ public class CharacterController : MonoBehaviour, IDataPersistence
     private void UpdateHeadLight()
     {
         if (isHoldingHeadlamp)
-            fov.hasHeadlamp = true;
+        {
+            fov.headLampToggle = headlampToggle;
+        }
     }
 
     //Function to set the drag of the character rigidbody to a desired drag in water

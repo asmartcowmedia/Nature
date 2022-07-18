@@ -15,6 +15,13 @@ public class GameData
     public Vector3
         playerPosition,
         cameraPosition;
+    
+    public bool
+        macheteCollected,
+        infectedMacheteCollected,
+        headlampCollected,
+        mapCollected,
+        infectedMapCollected;
 
     //Dictionary for all saved data
     [FormerlySerializedAs("CollectablesCollected")] public SerializableDictionary<string, bool> collectablesCollected;

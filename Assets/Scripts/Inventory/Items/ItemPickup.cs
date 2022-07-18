@@ -3,6 +3,8 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     [SerializeField] private InventoryHolder inventory;
+
+    [SerializeField] private ItemsCollected itemsCollected;
     
     public float pickupRadius = 1f;
 
@@ -14,8 +16,9 @@ public class ItemPickup : MonoBehaviour
         {
             if (!inventory) return;
 
-            if (inventory.InventorySystem.AddToInventory(ItemData, 1))
+            if (inventory.InventorySystem.AddToInventory(ItemData, ItemData.amountToPickUp))
             {
+                itemsCollected.UpdateSave(ItemData);
                 Destroy(gameObject);
             }
         }

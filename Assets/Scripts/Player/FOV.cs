@@ -8,21 +8,23 @@ public class FOV : MonoBehaviour
         fov = 90f,
         angle = 0f,
         viewDistance = 5f,
-        headlampViewDistance = 10f;
+        headlampViewDistance = 10f,
+        headlampFov = 120;
     
     [SerializeField] private int rayCount = 3;
 
     [SerializeField] private LayerMask mask;
 
     [SerializeField] private Vector3 origin;
-
-    [ReadOnly] public bool hasHeadlamp;
+    
+    [ReadOnly] public bool headLampToggle;
 
     private Mesh _mesh;
 
     private float
         _startingAngle,
-        originalViewDistance;
+        originalViewDistance,
+        originalFov;
 
     private void Start()
     {
@@ -31,14 +33,22 @@ public class FOV : MonoBehaviour
         origin = Vector3.zero;
 
         originalViewDistance = viewDistance;
+        originalFov = fov;
     }
 
     private void Update()
     {
-        if (hasHeadlamp)
+        if (headLampToggle)
+        {
+            fov = headlampFov;
             viewDistance = headlampViewDistance;
-        if (!hasHeadlamp)
+        }
+
+        if (!headLampToggle)
+        {
+            fov = originalFov;
             viewDistance = originalViewDistance;
+        }
     }
 
     private void LateUpdate()

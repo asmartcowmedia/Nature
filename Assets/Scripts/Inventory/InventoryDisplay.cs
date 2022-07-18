@@ -14,7 +14,7 @@ public abstract class InventoryDisplay : MonoBehaviour
     public InventorySystem InventorySystem => inventorySystem;
     public Dictionary<InventorySlot_UI, InventorySlot> SlotDictionary => slotDictionary;
 
-    [ShowInInspector][ReadOnly] private bool headlampClicked;
+    [ShowInInspector][ReadOnly] private bool headlampToggle;
 
     protected virtual void Start()
     {
@@ -31,6 +31,12 @@ public abstract class InventoryDisplay : MonoBehaviour
                 slot.Key.UpdateUISlot(updatedSlot); // slot key : UI slot
             }
         }
+    }
+
+    private void ToggleHeadlamp()
+    {
+        var toggle = player.headlampToggle;
+        player.headlampToggle = !toggle;
     }
 
     public void SlotClicked(InventorySlot_UI clickedSlot)
@@ -55,15 +61,15 @@ public abstract class InventoryDisplay : MonoBehaviour
             }
             if (clickedSlot.AssignedInventorySlot.ItemData.id == 3)
             {
-                if (!headlampClicked)
+                if (!headlampToggle)
                 {
                     player.isHoldingHeadlamp = true;
-                    headlampClicked = true;
+                    ToggleHeadlamp();
                 }
-                else if (headlampClicked)
+                else if (headlampToggle)
                 {
                     player.isHoldingHeadlamp = false;
-                    headlampClicked = false;
+                    ToggleHeadlamp();
                 }
             }
             if (clickedSlot.AssignedInventorySlot.ItemData.id == 4)

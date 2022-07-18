@@ -17,4 +17,5 @@ MonoBehaviour:
   itemType: Weapon
   description: A strange substance covers this machete... What is it?
   icon: {fileID: 21300000, guid: 30d563188603b574f9ef5f72997deb2e, type: 3}
+  amountToPickUp: 1
   MaxStackSize: 1

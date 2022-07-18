@@ -18,9 +18,9 @@ public class FileDataHandler
         this.useEncryption = useEncryption;
     }
 
-    public GameData Load()
+    public GameData Load(string profileId)
     {
-        var fullPath = Path.Combine(dataDirPath, dataFileName);
+        var fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
 
         GameData loadedData = null;
 
@@ -52,9 +52,9 @@ public class FileDataHandler
         return loadedData;
     }
 
-    public void Save(GameData data)
+    public void Save(GameData data, string profileId)
     {
-        var fullPath = Path.Combine(dataDirPath, dataFileName);
+        var fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
 
         try
         {

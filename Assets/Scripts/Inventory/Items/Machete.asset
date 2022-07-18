@@ -17,4 +17,5 @@ MonoBehaviour:
   itemType: Weapon
   description: A basic cutting tool! Chop Chop!
   icon: {fileID: 21300000, guid: 476f1c799603aa84cacf8ca896abb117, type: 3}
+  amountToPickUp: 1
   MaxStackSize: 1
