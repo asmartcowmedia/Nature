@@ -46,6 +46,9 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.Log("No data was found. Initializing data to defaults!");
             NewGame();
         }
+        
+        if(gameData.health == 0)
+            NewGame();
 
         foreach (var dataPersistenceObj in dataPersistenceObjects)
         {

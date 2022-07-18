@@ -7,8 +7,6 @@ public class CharacterController : MonoBehaviour, IDataPersistence
      // Exposed Variables (Editable in editor) //
     //----------------------------------------//
     [FoldoutGroup("Attachable Objects")][Title("Rigidbodies")][SerializeField] private Rigidbody2D rigidBody;
-    
-    [FoldoutGroup("Attachable Objects")][Title("Rigidbodies")][SerializeField] private InventoryUI inventoryUI;
 
     [FoldoutGroup("Attachable Objects")][Title("Transforms")][SerializeField] private Transform graphics;
     [FoldoutGroup("Attachable Objects")][SerializeField] private Transform attackDirection;
@@ -26,11 +24,13 @@ public class CharacterController : MonoBehaviour, IDataPersistence
     [FoldoutGroup("Player Variables")][SerializeField] private string waterTrigger;
     
     [FoldoutGroup("Player Variables")][Title("Attacking")][SerializeField] public float attackDamage;
-    [FoldoutGroup("Player Variables")][ReadOnly] public bool isAttacking;
-
-    [FoldoutGroup("Graphics")][SerializeField] public Vector3 graphicsScale;
-
-    [FoldoutGroup("Inventory")][ShowInInspector][ReadOnly] private Inventory inventory;
+    [FoldoutGroup("Player Variables")][ReadOnly] public bool isAttacking; 
+    
+    [FoldoutGroup("Feedback")][SerializeField][Title("Editable")] public Vector3 graphicsScale;
+    [FoldoutGroup("Feedback")][SerializeField] private float knockBackForce;
+    
+    [FoldoutGroup("Feedback")][ShowInInspector][Title("Read Only / Debugging")][ReadOnly] public bool isBeingHurt;
+    [FoldoutGroup("Feedback")][ShowInInspector][ReadOnly] public Vector3 hurtDirection;
     //----------------------------------------//
     
       //-------------------------------------------------//
@@ -65,9 +65,6 @@ public class CharacterController : MonoBehaviour, IDataPersistence
         rigidBody.gravityScale = 0f;
         rigidBody.angularDrag = normalDrag;
         rigidBody.drag = normalDrag;
-
-        inventory = new Inventory();
-        inventoryUI.SetInventory(inventory);
     }
 
     private void Update()
@@ -76,6 +73,9 @@ public class CharacterController : MonoBehaviour, IDataPersistence
         MousePosition();
         UpdateGraphicsScale();
         Attack();
+        
+        if (isBeingHurt)
+            KnockBack();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -173,5 +173,12 @@ public class CharacterController : MonoBehaviour, IDataPersistence
     {
         rigidBody.drag = normalDrag;
         rigidBody.angularDrag = normalDrag;
+    }
+
+    private void KnockBack()
+    {
+        var direction = transform.position - hurtDirection;
+
+        rigidBody.AddForce(direction * knockBackForce, ForceMode2D.Impulse);
     }
 }

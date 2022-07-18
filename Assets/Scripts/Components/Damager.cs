@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class Damager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Damager : MonoBehaviour
     private HP playerHp;
 
     private bool interval;
+
+    private Vector3 playerLocation;
 
     private IEnumerator DamageOverTime(float time)
     {
@@ -27,7 +30,10 @@ public class Damager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerHp = other.gameObject.GetComponent<HP>();
+            var go = other.gameObject;
+            playerHp = go.GetComponent<HP>();
+            go.GetComponent<CharacterController>().hurtDirection = transform.position;
+            go.GetComponent<CharacterController>().isBeingHurt = true;
         
             interval = intervalDamage;
         
@@ -39,6 +45,7 @@ public class Damager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            other.gameObject.GetComponent<CharacterController>().isBeingHurt = false;
             interval = false;
         }
     }
