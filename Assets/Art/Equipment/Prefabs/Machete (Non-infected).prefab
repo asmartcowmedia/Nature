@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3840668701788053244}
   - component: {fileID: 8802473402504289458}
   - component: {fileID: 2182577110482370430}
+  - component: {fileID: 2429411436191980903}
   m_Layer: 0
   m_Name: Machete (Non-infected)
   m_TagString: Pickup
@@ -101,3 +102,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.6
+--- !u!114 &2429411436191980903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2384573833228263786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ab262e7ea020f4aaba41abfd27fdcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  pickupRadius: 1
+  ItemData: {fileID: 11400000, guid: 250e7a89ce46b804eab5504209f3f227, type: 2}

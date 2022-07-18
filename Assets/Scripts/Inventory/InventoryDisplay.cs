@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public abstract class InventoryDisplay : MonoBehaviour
@@ -12,6 +13,8 @@ public abstract class InventoryDisplay : MonoBehaviour
 
     public InventorySystem InventorySystem => inventorySystem;
     public Dictionary<InventorySlot_UI, InventorySlot> SlotDictionary => slotDictionary;
+
+    [ShowInInspector][ReadOnly] private bool headlampClicked;
 
     protected virtual void Start()
     {
@@ -52,10 +55,16 @@ public abstract class InventoryDisplay : MonoBehaviour
             }
             if (clickedSlot.AssignedInventorySlot.ItemData.id == 3)
             {
-                player.isHoldingHeadlamp = true;
-                
-                player.isHoldingInfectedMap = false;
-                player.isHoldingMap = false;
+                if (!headlampClicked)
+                {
+                    player.isHoldingHeadlamp = true;
+                    headlampClicked = true;
+                }
+                else if (headlampClicked)
+                {
+                    player.isHoldingHeadlamp = false;
+                    headlampClicked = false;
+                }
             }
             if (clickedSlot.AssignedInventorySlot.ItemData.id == 4)
             {

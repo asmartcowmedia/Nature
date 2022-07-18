@@ -8,6 +8,8 @@ public class DataPersistenceManager : MonoBehaviour
     [SerializeField] private string fileName;
 
     [SerializeField] private bool useEncryption;
+
+    [SerializeField] private bool resetSave;
     
     private GameData gameData;
 
@@ -41,9 +43,9 @@ public class DataPersistenceManager : MonoBehaviour
     {
         gameData = dataHandler.Load();
         
-        if (gameData == null)
+        if (gameData == null || resetSave)
         {
-            Debug.Log("No data was found. Initializing data to defaults!");
+            Debug.Log("Creating new save file!");
             NewGame();
         }
         

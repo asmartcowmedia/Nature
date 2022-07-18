@@ -25,7 +25,7 @@ public class GameData
         health = 100;
         playerPosition = Vector3.zero;
         cameraPosition = new Vector3(0, 0, -5);
-        cameraZoom = 0;
+        cameraZoom = 100;
         collectablesCollected = new SerializableDictionary<string, bool>();
         inventorySlots = new List<InventorySlot>(10);
     }

@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class FOV : MonoBehaviour
 {
     [SerializeField] private float 
         fov = 90f,
         angle = 0f,
-        viewDistance = 50f;
+        viewDistance = 5f,
+        headlampViewDistance = 10f;
     
     [SerializeField] private int rayCount = 3;
 
@@ -14,15 +16,29 @@ public class FOV : MonoBehaviour
 
     [SerializeField] private Vector3 origin;
 
+    [ReadOnly] public bool hasHeadlamp;
+
     private Mesh _mesh;
 
-    private float _startingAngle;
+    private float
+        _startingAngle,
+        originalViewDistance;
 
     private void Start()
     {
         _mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = _mesh;
         origin = Vector3.zero;
+
+        originalViewDistance = viewDistance;
+    }
+
+    private void Update()
+    {
+        if (hasHeadlamp)
+            viewDistance = headlampViewDistance;
+        if (!hasHeadlamp)
+            viewDistance = originalViewDistance;
     }
 
     private void LateUpdate()

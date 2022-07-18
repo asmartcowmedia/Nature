@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2692400653803871671}
   - component: {fileID: 2692400653803871665}
   - component: {fileID: 2692400653803871664}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

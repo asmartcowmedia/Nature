@@ -108,7 +108,8 @@ public class CharacterController : MonoBehaviour, IDataPersistence
         MousePosition();
         UpdateGraphicsScale();
         Attack();
-        
+        UpdateHeadLight();
+
         if (isBeingHurt)
             KnockBack();
     }
@@ -196,6 +197,12 @@ public class CharacterController : MonoBehaviour, IDataPersistence
                 stamina.DrainStamina(staminaDrain);
             }
         }
+    }
+
+    private void UpdateHeadLight()
+    {
+        if (isHoldingHeadlamp)
+            fov.hasHeadlamp = true;
     }
 
     //Function to set the drag of the character rigidbody to a desired drag in water
