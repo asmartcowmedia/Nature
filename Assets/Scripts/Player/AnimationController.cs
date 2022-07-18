@@ -9,6 +9,8 @@ public class AnimationController : MonoBehaviour
     //----------------------------------------//
     [FoldoutGroup("Attachable Objects")][Title("Animators")][SerializeField] private Animator animator;
     [FoldoutGroup("Attachable Objects")][SerializeField] private Animator attacker;
+    
+    [FoldoutGroup("Attachable Objects")][Title("UI")][SerializeField] private HoverOverUI UI;
 
     [FoldoutGroup("Attachable Objects")][Title("Character Controller")][SerializeField] private CharacterController player;
 
@@ -82,7 +84,7 @@ public class AnimationController : MonoBehaviour
     private void UpdateAttackStates()
     {
         //If mouse1 is pressed, check stamina, and set the attack trigger to true so the animation plays and use the end attack ienumerator to set a delay for next attack.
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !UI.IsPointerOverUIElement()) // Also checks if over ui before playing animation
         {
             if (stamina.stamina > 0 && stamina.stamina - (player.staminaDrain-5) >= 0)
             {

@@ -7,6 +7,8 @@ public class CharacterController : MonoBehaviour, IDataPersistence
      // Exposed Variables (Editable in editor) //
     //----------------------------------------//
     [FoldoutGroup("Attachable Objects")][Title("Rigidbodies")][SerializeField] private Rigidbody2D rigidBody;
+    
+    [FoldoutGroup("Attachable Objects")][Title("UI")][SerializeField] private HoverOverUI UI;
 
     [FoldoutGroup("Attachable Objects")][Title("Transforms")][SerializeField] private Transform graphics;
     [FoldoutGroup("Attachable Objects")][SerializeField] private Transform attackDirection;
@@ -31,6 +33,12 @@ public class CharacterController : MonoBehaviour, IDataPersistence
     
     [FoldoutGroup("Feedback")][ShowInInspector][Title("Read Only / Debugging")][ReadOnly] public bool isBeingHurt;
     [FoldoutGroup("Feedback")][ShowInInspector][ReadOnly] public Vector3 hurtDirection;
+    [FoldoutGroup("Feedback")][ShowInInspector][ReadOnly] public bool
+        isHoldingMachete,
+        isHoldingInfectedMachete,
+        isHoldingHeadlamp,
+        isHoldingMap,
+        isHoldingInfectedMap;
     //----------------------------------------//
     
       //-------------------------------------------------//
@@ -151,7 +159,7 @@ public class CharacterController : MonoBehaviour, IDataPersistence
         attackDirection.rotation = Quaternion.Euler(0, 0, dir);
 
         //When hitting mouse1 ("Fire1") check if has enough stamina and set attack to true and drain stamina proportionately
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !UI.IsPointerOverUIElement()) // Now, also checks if mouse is over UI or not before attacking
         {
             if (stamina.stamina > 0 && stamina.stamina - staminaDrain >= 0)
             {

@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 1
   displayName: Machete
   itemType: Weapon
-  description: ' [TEST]'
+  description: A basic cutting tool! Chop Chop!
   icon: {fileID: 21300000, guid: 476f1c799603aa84cacf8ca896abb117, type: 3}
-  stackSize: 5
+  MaxStackSize: 1

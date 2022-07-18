@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -5,6 +6,8 @@ using UnityEngine.Serialization;
 public class GameData
 {
     //Variables to save
+    public List<InventorySlot> inventorySlots;
+    
     public float 
         health,
         cameraZoom;
@@ -24,5 +27,6 @@ public class GameData
         cameraPosition = new Vector3(0, 0, -5);
         cameraZoom = 0;
         collectablesCollected = new SerializableDictionary<string, bool>();
+        inventorySlots = new List<InventorySlot>(10);
     }
 }

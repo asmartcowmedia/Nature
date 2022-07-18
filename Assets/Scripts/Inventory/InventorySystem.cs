@@ -14,6 +14,16 @@ public class InventorySystem
     public int InventorySize => inventorySlots.Count;
 
     public UnityAction<InventorySlot> OnInventorySlotChanged;
+    
+    public void LoadData(GameData data)
+    {
+        inventorySlots = data.inventorySlots;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.inventorySlots = inventorySlots;
+    }
 
     public InventorySystem(int size)
     {
