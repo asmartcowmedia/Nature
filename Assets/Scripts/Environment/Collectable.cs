@@ -20,7 +20,7 @@ public class Collectables : MonoBehaviour, IDataPersistence
             collectable.gameObject.SetActive(false);
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         if (data.collectablesCollected.ContainsKey(id))
             data.collectablesCollected.Remove(id);

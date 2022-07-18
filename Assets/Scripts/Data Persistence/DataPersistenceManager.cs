@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class DataPersistenceManager : MonoBehaviour
 {
     [Title("Debugging")][SerializeField] private bool initializeDataIfNull = false;
+    [SerializeField] private bool disablePersistence = false;
+    [SerializeField] private bool overrideSelectedProfileId = false;
+    [SerializeField] private string testSelectedProfileId;
     
     [Header("File Storage Config")] 
     [SerializeField] private string fileName;
@@ -21,7 +24,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     private FileDataHandler dataHandler;
 
-    private string selectedProfileId = "test";
+    private string selectedProfileId;
 
     public static DataPersistenceManager Instance { get; private set; }
 
@@ -35,20 +38,31 @@ public class DataPersistenceManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        if (disablePersistence)
+        {
+            Debug.LogWarning("Data Persistence is currently disabled!");
+        }
         
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
+
+        selectedProfileId = dataHandler.GetMostRecentlyUpdatedProfileId();
+        
+        if (overrideSelectedProfileId)
+        {
+            selectedProfileId = testSelectedProfileId;
+            Debug.LogWarning("Overrode selected profile id with: " + testSelectedProfileId);
+        }
     }
 
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.sceneUnloaded += OnSceneUnLoaded;
     }
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneManager.sceneUnloaded -= OnSceneUnLoaded;
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -58,9 +72,10 @@ public class DataPersistenceManager : MonoBehaviour
         LoadGame();
     }
 
-    public void OnSceneUnLoaded(Scene scene)
+    public void ChangeSelectedProfileId(string newProfileId)
     {
-        SaveGame();
+        selectedProfileId = newProfileId;
+        LoadGame();
     }
 
     public void NewGame()
@@ -70,6 +85,9 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void LoadGame()
     {
+        if (disablePersistence)
+            return;
+        
         gameData = dataHandler.Load(selectedProfileId);
         
         if (gameData == null && initializeDataIfNull)
@@ -92,6 +110,9 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void SaveGame()
     {
+        if (disablePersistence)
+            return;
+        
         if (gameData == null)
         {
             Debug.Log("No Data was found, A new game needs to be started before data can be loaded.");
@@ -100,9 +121,11 @@ public class DataPersistenceManager : MonoBehaviour
         
         foreach (var dataPersistenceObj in dataPersistenceObjects)
         {
-            dataPersistenceObj.SaveData(ref gameData);
+            dataPersistenceObj.SaveData(gameData);
         }
 
+        gameData.lastUpdated = System.DateTime.Now.ToBinary();
+        
         dataHandler.Save(gameData, selectedProfileId);
     }
 
@@ -114,7 +137,7 @@ public class DataPersistenceManager : MonoBehaviour
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
         IEnumerable<IDataPersistence> persistenceObjects =
-            FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
+            FindObjectsOfType<MonoBehaviour>(true).OfType<IDataPersistence>();
 
         return new List<IDataPersistence>(persistenceObjects);
     }
@@ -122,5 +145,10 @@ public class DataPersistenceManager : MonoBehaviour
     public bool HasGameData()
     {
         return gameData != null;
+    }
+
+    public Dictionary<string, GameData> GetAllProfilesGameData()
+    {
+        return dataHandler.LoadAllProfiles();
     }
 }

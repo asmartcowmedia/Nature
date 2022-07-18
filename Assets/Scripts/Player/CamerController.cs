@@ -42,7 +42,7 @@ public class CamerController : MonoBehaviour, IDataPersistence
         initialZoomDistance = data.cameraZoom;
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         data.cameraPosition = transform.position;
         data.cameraZoom = currentZoom;

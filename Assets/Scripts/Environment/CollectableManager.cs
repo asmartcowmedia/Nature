@@ -17,7 +17,7 @@ public class CollectableManager : MonoBehaviour, IDataPersistence
     }
 
     //Public callable function to save data
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
     }
 

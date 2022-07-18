@@ -42,7 +42,7 @@ public class HP : MonoBehaviour, IDataPersistence
         health = data.health;
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         data.health = health;
     }

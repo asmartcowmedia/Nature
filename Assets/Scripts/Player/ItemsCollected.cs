@@ -38,7 +38,7 @@ public class ItemsCollected : MonoBehaviour, IDataPersistence
             inv.InventorySystem.AddToInventory(infectedMap, 1);
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         data.macheteCollected = macheteCollected;
         data.infectedMacheteCollected = infectedMacheteCollected;

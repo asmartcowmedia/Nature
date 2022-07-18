@@ -1,6 +1,9 @@
 using UnityEngine;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class FileDataHandler
 {
@@ -20,6 +23,11 @@ public class FileDataHandler
 
     public GameData Load(string profileId)
     {
+        if (profileId == null)
+        {
+            return null;
+        }
+        
         var fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
 
         GameData loadedData = null;
@@ -54,6 +62,11 @@ public class FileDataHandler
 
     public void Save(GameData data, string profileId)
     {
+        if (profileId == null)
+        {
+            return;
+        }
+        
         var fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
 
         try
@@ -77,6 +90,69 @@ public class FileDataHandler
         {
             Debug.Log("Error occured when trying to save data to file: " + fullPath + "\n" + e);
         }
+    }
+
+    public Dictionary<string, GameData> LoadAllProfiles()
+    {
+        Dictionary<string, GameData> profileDictionary = new Dictionary<string, GameData>();
+
+        IEnumerable<DirectoryInfo> dirInfos = new DirectoryInfo(dataDirPath).EnumerateDirectories();
+
+        foreach (var dirInfo in dirInfos)
+        {
+            var profileId = dirInfo.Name;
+
+            var fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
+            if (!File.Exists(fullPath))
+            {
+                Debug.LogWarning("Skipping directory when loading all profiles because it does not contain data: " + profileId);
+                continue;
+            }
+
+            GameData profileData = Load(profileId);
+
+            if (profileData != null)
+            {
+                profileDictionary.Add(profileId, profileData);
+            }
+            else
+                Debug.LogError("Tried to load profile but something went wrong. ProfileId: " + profileId);
+        }
+
+        return profileDictionary;
+    }
+
+    public string GetMostRecentlyUpdatedProfileId()
+    {
+        string mostRecentProfileId = null;
+        
+        Dictionary<string, GameData> profilesGameData = LoadAllProfiles();
+
+        foreach (KeyValuePair<string, GameData> pair in profilesGameData)
+        {
+            var profileId = pair.Key;
+            var gameData = pair.Value;
+
+            if (gameData == null)
+                continue;
+
+            if (mostRecentProfileId == null)
+            {
+                mostRecentProfileId = profileId;
+            }
+            else
+            {
+                DateTime mostRecentDateTime = DateTime.FromBinary(profilesGameData[mostRecentProfileId].lastUpdated);
+                DateTime newDateTime = DateTime.FromBinary(gameData.lastUpdated);
+
+                if (newDateTime > mostRecentDateTime)
+                {
+                    mostRecentProfileId = profileId;
+                }
+            }
+        }
+
+        return mostRecentProfileId;
     }
 
     private string EncryptDecrypt(string data)
