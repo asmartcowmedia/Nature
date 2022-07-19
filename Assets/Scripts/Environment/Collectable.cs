@@ -1,11 +1,13 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-public class Collectables : MonoBehaviour, IDataPersistence
+public class Collectable : MonoBehaviour, IDataPersistence
 {
     //!! NOT SET UP YET!!\\
+    [SerializeField] private CollectableManager manager;
     
-    [ShowInInspector][ReadOnly] private string id;
+    [SerializeField][ReadOnly] private string id;
+    [SerializeField][ReadOnly] private bool collected;
 
     [ContextMenu("Generate GUID for ID")]
     private void GenerateGuid()
@@ -20,15 +22,9 @@ public class Collectables : MonoBehaviour, IDataPersistence
             collectable.gameObject.SetActive(false);
     }
 
-    public void SaveData(GameData data)
+    public void SaveData(GameData data) 
     {
-        if (data.collectablesCollected.ContainsKey(id))
-            data.collectablesCollected.Remove(id);
-
-        data.collectablesCollected.Add(id, collected);
     }
-
-    private bool collected = false;
 
     [SerializeField] private GameObject collectable;
 
@@ -42,6 +38,7 @@ public class Collectables : MonoBehaviour, IDataPersistence
 
     private void Collect()
     {
+        manager.Collect(id, true);
         collectable.SetActive(false);
     }
 }

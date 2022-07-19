@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [System.Serializable]
 public class GameData
@@ -26,7 +25,7 @@ public class GameData
         infectedMapCollected;
 
     //Dictionary for all saved data
-    [FormerlySerializedAs("CollectablesCollected")] public SerializableDictionary<string, bool> collectablesCollected;
+    public SerializableDictionary<string, bool> collectablesCollected;
     
     //publically callable function to retrieve base gamedata
     public GameData()
