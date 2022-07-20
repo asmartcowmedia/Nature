@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2692400653803871671}
   - component: {fileID: 2692400653803871665}
   - component: {fileID: 2692400653803871664}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 1
 --- !u!114 &2692400653803871664
 MonoBehaviour:
@@ -327,7 +327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2692400655021660753
 Transform:
   m_ObjectHideFlags: 0
