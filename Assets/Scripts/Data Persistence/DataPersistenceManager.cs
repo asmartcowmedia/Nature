@@ -10,9 +10,9 @@ public class DataPersistenceManager : MonoBehaviour
     [SerializeField] private bool disablePersistence = false;
     [SerializeField] private bool overrideSelectedProfileId = false;
     [SerializeField] private string testSelectedProfileId;
-    
-    [Header("File Storage Config")] 
-    [SerializeField] private string fileName;
+
+    [Header("File Storage Config")][SerializeField] private string fileName;
+    [SerializeField] private string pathName;
 
     [SerializeField] private bool useEncryption;
 
@@ -46,7 +46,7 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.LogWarning("Data Persistence is currently disabled!");
         }
         
-        dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
+        dataHandler = new FileDataHandler(pathName, fileName, useEncryption);
 
         selectedProfileId = dataHandler.GetMostRecentlyUpdatedProfileId();
         
@@ -129,10 +129,11 @@ public class DataPersistenceManager : MonoBehaviour
 
         gameData.lastUpdated = System.DateTime.Now.ToBinary();
 
-        Scene scene = SceneManager.GetActiveScene();
+        var scene = SceneManager.GetActiveScene();
         
         if (!scene.name.Equals("Main Menu"))
         {
+            Debug.Log("saving scene " + scene.name);
             gameData.currentScene = scene.name;
         }
 

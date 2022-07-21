@@ -44,6 +44,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d4daad57255fff4a9f663007d4b3b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initializeDataIfNull: 0
+  disablePersistence: 0
+  overrideSelectedProfileId: 0
+  testSelectedProfileId: 1
   fileName: savegame.data
+  pathName: Assets/Resources
   useEncryption: 0
   resetSave: 0
+  gameData:
+    lastUpdated: 0
+    inventorySlots: []
+    health: 100
+    cameraZoom: 100
+    playerPosition: {x: 0, y: 0, z: 0}
+    cameraPosition: {x: 0, y: 0, z: -5}
+    macheteCollected: 0
+    infectedMacheteCollected: 0
+    headlampCollected: 0
+    mapCollected: 0
+    infectedMapCollected: 0
+    currentScene: Tutorial
+    totalCollectablesCollected: 0
+    collectablesCollected:
+      keys: []
+      values: 
