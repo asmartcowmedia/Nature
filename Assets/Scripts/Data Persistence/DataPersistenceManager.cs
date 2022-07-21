@@ -18,13 +18,15 @@ public class DataPersistenceManager : MonoBehaviour
 
     [SerializeField] private bool resetSave;
     
-    private GameData gameData;
+    public GameData gameData;
 
     private List<IDataPersistence> dataPersistenceObjects;
 
     private FileDataHandler dataHandler;
 
-    private string selectedProfileId;
+    private string 
+        selectedProfileId,
+        currentScene;
 
     public static DataPersistenceManager Instance { get; private set; }
 
@@ -68,6 +70,7 @@ public class DataPersistenceManager : MonoBehaviour
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         dataPersistenceObjects = FindAllDataPersistenceObjects();
+        gameData.currentScene = SceneManager.GetActiveScene().name;
         
         LoadGame();
     }
@@ -125,7 +128,14 @@ public class DataPersistenceManager : MonoBehaviour
         }
 
         gameData.lastUpdated = System.DateTime.Now.ToBinary();
+
+        Scene scene = SceneManager.GetActiveScene();
         
+        if (!scene.name.Equals("Main Menu"))
+        {
+            gameData.currentScene = scene.name;
+        }
+
         dataHandler.Save(gameData, selectedProfileId);
     }
 
@@ -150,5 +160,16 @@ public class DataPersistenceManager : MonoBehaviour
     public Dictionary<string, GameData> GetAllProfilesGameData()
     {
         return dataHandler.LoadAllProfiles();
+    }
+
+    public string GetSavedSceneName()
+    {
+        if (gameData == null)
+        {
+            Debug.LogError("Tried to get scene name but data was null.");
+            return null;
+        }
+
+        return gameData.currentScene;
     }
 }

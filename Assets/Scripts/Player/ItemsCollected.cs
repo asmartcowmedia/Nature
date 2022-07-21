@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ItemsCollected : MonoBehaviour, IDataPersistence
@@ -17,6 +18,20 @@ public class ItemsCollected : MonoBehaviour, IDataPersistence
         headlampCollected,
         mapCollected,
         infectedMapCollected;
+    
+    public static ItemsCollected Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.Log("Found more than one Data Persistence Manager in the scene! Destroying new one, keeping old!");
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     public void LoadData(GameData data)
     {
@@ -46,6 +61,7 @@ public class ItemsCollected : MonoBehaviour, IDataPersistence
         data.mapCollected = mapCollected;
         data.infectedMapCollected = infectedMapCollected;
     }
+    
 
     public void UpdateSave(InventoryItemData data)
     {

@@ -1,4 +1,3 @@
-using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +10,8 @@ public class MainMenu : Menu
     [Title("Menu Buttons")][SerializeField] private Button newGameButton;
     [SerializeField] private Button continueGameButton;
     [SerializeField] private Button loadGameButton;
+    
+    private GameData data;
 
     private void Start()
     {
@@ -39,7 +40,7 @@ public class MainMenu : Menu
         
         DataPersistenceManager.Instance.SaveGame();
         
-        SceneManager.LoadSceneAsync("Tutorial");
+        SceneManager.LoadSceneAsync(data.currentScene);
     }
 
     private void DisableMenuButtons()

@@ -1246,6 +1246,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DataPersistenceManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2714650797603031166, guid: 4ca8ec08c08c57d41b716c571a553c6d, type: 3}
+      propertyPath: initializeDataIfNull
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2714650797603031167, guid: 4ca8ec08c08c57d41b716c571a553c6d, type: 3}
       propertyPath: m_RootOrder
       value: 1

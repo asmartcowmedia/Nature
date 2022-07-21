@@ -4,6 +4,21 @@ using UnityEngine.InputSystem;
 
 public class CharacterController : MonoBehaviour, IDataPersistence
 {
+    //Keep item between scenes
+    public static CharacterController Instance { get; private set; }
+
+    private void KeepOnDestroy()
+    {
+        if (Instance != null)
+        {
+            Debug.Log("Found more than one CharacterController in the scene! Destroying new one, keeping old!");
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+    
       //----------------------------------------//
      // Exposed Variables (Editable in editor) //
     //----------------------------------------//
@@ -92,6 +107,8 @@ public class CharacterController : MonoBehaviour, IDataPersistence
 
     private void Awake()
     {
+        KeepOnDestroy();
+        
         //Setting all variables initial state
         input = new PlayerControls();
         

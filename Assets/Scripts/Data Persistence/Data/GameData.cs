@@ -24,6 +24,12 @@ public class GameData
         mapCollected,
         infectedMapCollected;
 
+    public string
+        currentScene;
+
+    public int
+        totalCollectablesCollected;
+
     //Dictionary for all saved data
     public SerializableDictionary<string, bool> collectablesCollected;
     
@@ -36,6 +42,7 @@ public class GameData
         cameraZoom = 100;
         collectablesCollected = new SerializableDictionary<string, bool>();
         inventorySlots = new List<InventorySlot>(10);
+        currentScene = "Tutorial";
     }
 
     public int GetPercentageComplete()
@@ -52,9 +59,10 @@ public class GameData
         var percentageCompleted = 0;
         if (collectablesCollected.Count > 0)
         {
-            percentageCompleted = (totalCollected * 100 / collectablesCollected.Count);
+            percentageCompleted = (totalCollected * 100 / 3);
         }
 
+        totalCollectablesCollected = totalCollected;
         return percentageCompleted;
     }
 }

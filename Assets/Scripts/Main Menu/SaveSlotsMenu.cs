@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
-using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -10,6 +9,8 @@ public class SaveSlotsMenu : Menu
     [Title("Menu Navigation")][SerializeField] private MainMenu mainMenu;
     
     [Title("Menu Buttons")][SerializeField] private Button backButton;
+    
+    private GameData gameData;
     
     private SaveSlot[] saveSlots;
 
@@ -28,10 +29,19 @@ public class SaveSlotsMenu : Menu
         
         if (!isLoadingGame) 
             DataPersistenceManager.Instance.NewGame();
+
+        if (DataPersistenceManager.Instance.gameData.currentScene == "")
+        {
+            Debug.Log("scene has no name... loading default");
+            SceneManager.LoadSceneAsync("Tutorial");
+        }
+        else
+        {
+            Debug.Log("scene is loading " + DataPersistenceManager.Instance.GetSavedSceneName());
+            SceneManager.LoadSceneAsync(DataPersistenceManager.Instance.GetSavedSceneName());
+        }
         
         DataPersistenceManager.Instance.SaveGame();
-
-        SceneManager.LoadSceneAsync("Tutorial");
     }
 
     public void OnBackClicked()

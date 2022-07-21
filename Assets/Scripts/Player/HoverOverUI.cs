@@ -5,6 +5,21 @@ using UnityEngine.InputSystem;
 
 public class HoverOverUI : MonoBehaviour
 {
+    //Keep item between scenes
+    public static HoverOverUI Instance { get; private set; }
+
+    private void KeepOnDestroy()
+    {
+        if (Instance != null)
+        {
+            Debug.Log("Found more than one HoverOverUI in the scene! Destroying new one, keeping old!");
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+    
     [SerializeField] private string UILayer;
     
     private PlayerControls input;
@@ -25,6 +40,7 @@ public class HoverOverUI : MonoBehaviour
 
     private void Awake()
     {
+        KeepOnDestroy();
         input = new PlayerControls();
     }
 

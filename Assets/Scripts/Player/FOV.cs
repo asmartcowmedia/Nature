@@ -4,6 +4,21 @@ using Sirenix.OdinInspector;
 
 public class FOV : MonoBehaviour
 {
+    //Keep item between scenes
+    public static FOV Instance { get; private set; }
+
+    private void KeepOnDestroy()
+    {
+        if (Instance != null)
+        {
+            Debug.Log("Found more than one FOV in the scene! Destroying new one, keeping old!");
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+    
     [SerializeField] private float 
         fov = 90f,
         angle = 0f,
@@ -34,6 +49,11 @@ public class FOV : MonoBehaviour
 
         originalViewDistance = viewDistance;
         originalFov = fov;
+    }
+
+    private void Awake()
+    {
+        KeepOnDestroy();
     }
 
     private void Update()

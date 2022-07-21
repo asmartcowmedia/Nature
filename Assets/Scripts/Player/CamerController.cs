@@ -1,11 +1,24 @@
-using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
-using Unity.VisualScripting;
 using UnityEngine.InputSystem;
 
 public class CamerController : MonoBehaviour, IDataPersistence
 {
+    //Keep item between scenes
+    public static CamerController Instance { get; private set; }
+
+    private void KeepOnDestroy()
+    {
+        if (Instance != null)
+        {
+            Debug.Log("Found more than one CameraController in the scene! Destroying new one, keeping old!");
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
       //----------------------------------------//
      // Exposed Variables (Editable in editor) //
     //----------------------------------------//
@@ -69,6 +82,7 @@ public class CamerController : MonoBehaviour, IDataPersistence
 
     private void Awake()
     {
+        KeepOnDestroy();
         input = new PlayerControls();
     }
 

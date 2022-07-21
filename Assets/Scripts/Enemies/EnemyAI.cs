@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Pathfinding;
 
@@ -43,7 +42,12 @@ public class EnemyAI : MonoBehaviour
         if (seeker == null) seeker = GetComponent<Seeker>();
         if (rigidbody == null) rigidbody = GetComponent<Rigidbody2D>();
     }
-    
+
+    private void Awake()
+    {
+        target = FindObjectOfType<CharacterController>().transform;
+    }
+
     private void OnPathComplete(Path p)
     {
         p.Claim(this);

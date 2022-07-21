@@ -1,4 +1,3 @@
-using System;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -18,7 +17,7 @@ public class SaveSlot : MonoBehaviour
 
     private void Awake()
     {
-        saveSlotsButton = GetComponent<Button>();
+        saveSlotsButton = GetComponent<Button>(); 
     }
 
     public void SetData(GameData data)
@@ -34,7 +33,7 @@ public class SaveSlot : MonoBehaviour
             hasDataContent.SetActive(true);
 
             percentComplete.text = data.GetPercentageComplete() + "% COMPLETE";
-            collectablesCollected.text = "COLLECTABLES COLLECTED: " + data.collectablesCollected;
+            collectablesCollected.text = "COLLECTABLES COLLECTED: " + data.totalCollectablesCollected;
         }
     }
 

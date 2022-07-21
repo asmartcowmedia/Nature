@@ -3,6 +3,20 @@ using UnityEngine;
 
 public class CollectableManager : MonoBehaviour, IDataPersistence
 {
+    public static CollectableManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.Log("Found more than one CollectableManager in the scene! Destroying new one, keeping old!");
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+    
     //public callable Function to load data
     public void LoadData(GameData data)
     {
