@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
@@ -16,7 +15,7 @@ public class EnemyHP : MonoBehaviour
 
     [SerializeField] private Color damageColor;
     
-    [ShowInInspector][ReadOnly] private float health;
+    [ShowInInspector][ReadOnly] public float health;
 
     private bool visualFeedback;
 

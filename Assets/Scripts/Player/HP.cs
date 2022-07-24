@@ -20,7 +20,7 @@ public class HP : MonoBehaviour, IDataPersistence
     [FoldoutGroup("Attachable Objects")][Title("Sprite Renderers")][SerializeField] private SpriteRenderer sprite;
     
     [FoldoutGroup("Variables")][Title("Health")][SerializeField] private float maxHealth;
-    [FoldoutGroup("Variables")][ShowInInspector][ReadOnly] private float health;
+    [FoldoutGroup("Variables")][ShowInInspector][ReadOnly] public float health;
     [FoldoutGroup("Variables")][SerializeField] private Color damageColor;
     
     [FoldoutGroup("Variables")][Title("Graphics")][SerializeField] private float damageGrowMultiplier;
@@ -73,8 +73,6 @@ public class HP : MonoBehaviour, IDataPersistence
         ChangeSize();
         
         yield return new WaitForSeconds(2f);
-        
-        Destroy(gameObject);
     }
     //----------------------------------------//
 
@@ -97,7 +95,7 @@ public class HP : MonoBehaviour, IDataPersistence
     {
         UpdateHUD();
         
-        if (health == 0)
+        if (health <= 0)
             Die();
     }
 
@@ -124,7 +122,7 @@ public class HP : MonoBehaviour, IDataPersistence
     //function that sets the character player to inactive (does not destroy player)
     private void Die()
     {
-        player.SetActive(false);
+        controller.isDead = true;
     }
 
     //Function to damage the player with visual feedback loop

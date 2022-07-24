@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using Pathfinding;
+using Sirenix.OdinInspector;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -26,6 +28,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private bool
         drawCustomGizmo;
 
+    [SerializeField] private new AudioManager audio;
+
     private Path _path;
     
     private int 
@@ -46,6 +50,22 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         target = FindObjectOfType<CharacterController>().transform;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Camera.main.GetComponent<AudioManager>().TriggerCombat();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Camera.main.GetComponent<AudioManager>().TriggerAmbiance();
+        }
     }
 
     private void OnPathComplete(Path p)

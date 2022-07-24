@@ -67,7 +67,11 @@ public class CharacterController : MonoBehaviour, IDataPersistence
     private InputAction
         move,
         fire1,
-        MouseReferencePosition;
+        mouseReferencePosition,
+        sprint;
+    private bool canAttack;
+
+    [ReadOnly] public bool isDead;
     //----------------------------------------//
     
       //---------------------------//
@@ -91,18 +95,21 @@ public class CharacterController : MonoBehaviour, IDataPersistence
     {
         move = input.Player.Move;
         fire1 = input.Player.Fire;
-        MouseReferencePosition = input.Player.MousePosition;
+        mouseReferencePosition = input.Player.MousePosition;
+        sprint = input.Player.Sprint;
         
         fire1.Enable();
         move.Enable();
-        MouseReferencePosition.Enable();
+        mouseReferencePosition.Enable();
+        sprint.Enable();
     }
 
     private void OnDisable()
     {
         fire1.Disable();
         move.Disable();
-        MouseReferencePosition.Disable();
+        mouseReferencePosition.Disable();
+        sprint.Disable();
     }
 
     private void Awake()
@@ -172,7 +179,7 @@ public class CharacterController : MonoBehaviour, IDataPersistence
     //Function to capture mouse position and translate it to world space for use in other functionality
     private void MousePosition()
     {
-        mousePosition = cameraReference.ScreenToWorldPoint(new Vector3(MouseReferencePosition.ReadValue<Vector2>().x, MouseReferencePosition.ReadValue<Vector2>().y, cameraReference.transform.position.z * -1));
+        mousePosition = cameraReference.ScreenToWorldPoint(new Vector3(mouseReferencePosition.ReadValue<Vector2>().x, mouseReferencePosition.ReadValue<Vector2>().y, cameraReference.transform.position.z * -1));
         mousePosition = transform.InverseTransformPoint(mousePosition);
         
         fov.SetAimDirection(mousePosition);
@@ -182,33 +189,47 @@ public class CharacterController : MonoBehaviour, IDataPersistence
     //Character Movement Function
     private void Move()
     {
-        //Gets the velocity from the X and Y Axis of the Unity input system. This corresponds to WASD keys
-        // velocity.x = Input.GetAxis("Horizontal");
-        // velocity.y = Input.GetAxis("Vertical");
-        velocity.x = move.ReadValue<Vector2>().x;
-        velocity.y = move.ReadValue<Vector2>().y;
+        if (!isDead)
+        {
+            //Gets the velocity from the X and Y Axis of the Unity input system. This corresponds to WASD keys
+            // velocity.x = Input.GetAxis("Horizontal");
+            // velocity.y = Input.GetAxis("Vertical");
+            velocity.x = move.ReadValue<Vector2>().x;
+            velocity.y = move.ReadValue<Vector2>().y;
 
-        //Normalize the velocity so that diagonal movement is not faster than horizontal or vertical
-        velocity.Normalize();
-        velocity *= 500 * (movementSpeed * Time.deltaTime);
+            //Normalize the velocity so that diagonal movement is not faster than horizontal or vertical
+            velocity.Normalize();
+            velocity *= 500 * (movementSpeed * Time.deltaTime);
 
-        //Add the velocity to the rigidbody, moving character along desired direction
-        rigidBody.AddForce(velocity);
+            if (sprint.IsPressed())
+            {
+                velocity *= 2;
+            }
+
+            //Add the velocity to the rigidbody, moving character along desired direction
+            rigidBody.AddForce(velocity);
+        }
     }
 
     //Character Attack Function
     private void Attack()
     {
-        //Get aim direction from mouse input
-        var dir = fov.GetAimDirection(mousePosition);
-
-        //Mak the attack direction the actual rotation
-        attackDirection.rotation = Quaternion.Euler(0, 0, dir);
-
-        //When hitting mouse1 ("Fire1") check if has enough stamina and set attack to true and drain stamina proportionately
-        if (fire1.WasPressedThisFrame() && !UI.IsPointerOverUIElement()) // Now, also checks if mouse is over UI or not before attacking
+        if (!isDead)
         {
-            if (stamina.stamina > 0 && stamina.stamina - staminaDrain >= 0)
+            //Get aim direction from mouse input
+            var dir = fov.GetAimDirection(mousePosition);
+
+            //Mak the attack direction the actual rotation
+            attackDirection.rotation = Quaternion.Euler(0, 0, dir);
+
+            if (isHoldingMachete || isHoldingInfectedMachete)
+                canAttack = true;
+            if (!isHoldingMachete || isHoldingInfectedMachete)
+                canAttack = false;
+
+            //When hitting mouse1 ("Fire1") check if has enough stamina and set attack to true and drain stamina proportionately
+            if (fire1.WasPressedThisFrame() && !UI.IsPointerOverUIElement() &&
+                canAttack) // Now, also checks if mouse is over UI or not before attacking
             {
                 isAttacking = true;
                 stamina.DrainStamina(staminaDrain);
@@ -240,8 +261,11 @@ public class CharacterController : MonoBehaviour, IDataPersistence
 
     private void KnockBack()
     {
-        var direction = transform.position - hurtDirection;
+        if (!isDead)
+        {
+            var direction = transform.position - hurtDirection;
 
-        rigidBody.AddForce(direction * knockBackForce, ForceMode2D.Impulse);
+            rigidBody.AddForce(direction * knockBackForce, ForceMode2D.Impulse);
+        }
     }
 }

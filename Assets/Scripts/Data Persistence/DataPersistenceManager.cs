@@ -12,7 +12,6 @@ public class DataPersistenceManager : MonoBehaviour
     [SerializeField] private string testSelectedProfileId;
 
     [Header("File Storage Config")][SerializeField] private string fileName;
-    [SerializeField] private string pathName;
 
     [SerializeField] private bool useEncryption;
 
@@ -46,7 +45,7 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.LogWarning("Data Persistence is currently disabled!");
         }
         
-        dataHandler = new FileDataHandler(pathName, fileName, useEncryption);
+        dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
 
         selectedProfileId = dataHandler.GetMostRecentlyUpdatedProfileId();
         

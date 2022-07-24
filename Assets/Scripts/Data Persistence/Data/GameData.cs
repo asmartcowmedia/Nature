@@ -42,7 +42,7 @@ public class GameData
         cameraZoom = 100;
         collectablesCollected = new SerializableDictionary<string, bool>();
         inventorySlots = new List<InventorySlot>(10);
-        currentScene = "Tutorial";
+        currentScene = "Main";
     }
 
     public int GetPercentageComplete()

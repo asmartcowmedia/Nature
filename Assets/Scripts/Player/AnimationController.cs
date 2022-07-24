@@ -32,6 +32,7 @@ public class AnimationController : MonoBehaviour
     [FoldoutGroup("Variables")][SerializeField] private string idleLeftAnimString;
     [FoldoutGroup("Variables")][SerializeField] private string idleRightAnimString;
     [FoldoutGroup("Variables")][SerializeField] private string attackingAnim1String;
+    [FoldoutGroup("Variables")][SerializeField] private string deathAnimString;
 
     [FoldoutGroup("Public Variables")][Title("Animation Variables")] public float[] attackLength;
 
@@ -123,6 +124,12 @@ public class AnimationController : MonoBehaviour
     //Function (state machine) to update animation states for movement
     private void UpdateAnimStates()
     {
+        if (player.GetComponent<HP>().health <= 0)
+        {
+            ChangeAnimationState(deathAnimString);
+            return;
+        }
+
         //Set variables for vertical and horizontal movement for animator
         var horizontal = move.ReadValue<Vector2>().x * 100;
         var vertical = move.ReadValue<Vector2>().y * 100;

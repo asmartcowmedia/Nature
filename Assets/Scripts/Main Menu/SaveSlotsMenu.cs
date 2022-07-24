@@ -33,7 +33,7 @@ public class SaveSlotsMenu : Menu
         if (DataPersistenceManager.Instance.gameData.currentScene == "")
         {
             Debug.Log("scene has no name... loading default");
-            SceneManager.LoadSceneAsync("Tutorial");
+            SceneManager.LoadSceneAsync("Main");
         }
         else
         {
