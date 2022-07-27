@@ -14,6 +14,9 @@ namespace CampingTrip
         [FoldoutGroup("Attachable Objects")]
         [Title("In Components")][SerializeField] private Animator attackAnimator;
         
+        [FoldoutGroup("Animation Strings")]
+        [Title("Attacks")][SerializeField] private string attack1AnimationString;
+        
         // Not editable in unity inspector and not editable in other scripts //
         private PlayerControls inputSystem;
         private InputAction attack;
@@ -21,8 +24,10 @@ namespace CampingTrip
         // Ienumerators //
         private IEnumerator EndAttack(float time) // Wait and end animation
         {
+            // Wait for provided seconds
             yield return new WaitForSeconds(time);
         
+            // Set the animation to false as well as the hit box trigger collider
             attackAnimator.SetBool("Attack1", false);
             attackHitBoxTriggerCollider.SetActive(false);
         }
@@ -62,11 +67,12 @@ namespace CampingTrip
         private void Attack() // Function to play attack animation when attacking
         {
             // If attack was pressed, play the animation and start a coroutine to wait for seconds while the animation plays
-            if (attack.WasPressedThisFrame())
+            if (attack.WasPressedThisFrame() && !attackAnimator.GetBool(attack1AnimationString))
             {
                 attackHitBoxTriggerCollider.SetActive(true);
-                attackAnimator.SetBool("Attack1", true);
+                attackAnimator.SetBool(attack1AnimationString, true);
 
+                // Calls the coroutine of EndAttack to end the attack animation
                 StartCoroutine(EndAttack(.4f));
             }
         }
