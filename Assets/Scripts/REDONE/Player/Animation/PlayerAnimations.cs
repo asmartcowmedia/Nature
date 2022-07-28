@@ -21,14 +21,14 @@ namespace CampingTrip
         private PlayerControls inputSystem;
         private InputAction attack;
         
-        // Ienumerators //
+        // IEnumerators //
         private IEnumerator EndAttack(float time) // Wait and end animation
         {
             // Wait for provided seconds
             yield return new WaitForSeconds(time);
         
             // Set the animation to false as well as the hit box trigger collider
-            attackAnimator.SetBool("Attack1", false);
+            attackAnimator.SetBool(attack1AnimationString, false);
             attackHitBoxTriggerCollider.SetActive(false);
         }
     

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1397
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Console Pro
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 122
+  controlID: 24
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 108
+  controlID: 25
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 123
+  controlID: 19
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -452,23 +452,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 82090000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 24fbffff
+      m_ExpandedIDs: aa2effff5ae7ffff24fbffff3c7400005874000086740000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: TEXT
+        m_OriginalName: TEXT
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -62922
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 4
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -725,9 +725,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.1731467, y: 0.8281036, z: 2.034921}
+    m_Target: {x: 0.6843476, y: 4.2337184, z: 1.5273973}
     speed: 2
-    m_Value: {x: 3.1731467, y: 0.8281036, z: 2.034921}
+    m_Value: {x: 0.7093548, y: 4.2304916, z: 1.5296077}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -778,9 +778,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 15.723988
+    m_Target: 5.132831
     speed: 2
-    m_Value: 15.723988
+    m_Value: 4.9118
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -989,22 +989,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/REDONE/Player/Combat
+    - Assets/Scripts/REDONE/Environment
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/REDONE/Player/Combat
+  - Assets/Scripts/REDONE/Environment
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Unity\Projects\Nature
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 447}
-    m_SelectedIDs: fc760000
-    m_LastClickedID: 30460
-    m_ExpandedIDs: 000000007c7600007e76000080760000827600008476000086760000887600008a7600008c7600008e760000f276000000ca9a3b
+    scrollPos: {x: 0, y: 495}
+    m_SelectedIDs: ccab0000
+    m_LastClickedID: 43980
+    m_ExpandedIDs: 000000006c7600006e76000070760000727600007476000076760000787600007a7600007c7600007e760000fa76000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1032,7 +1032,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007c7600007e76000080760000827600008476000086760000887600008a7600008c7600008e760000
+    m_ExpandedIDs: 000000006c7600006e76000070760000727600007476000076760000787600007a7600007c7600007e760000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1144,19 +1144,1021 @@ MonoBehaviour:
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
-  logPanelScroll: {x: 0, y: 0}
+  logPanelScroll: {x: 0, y: -217}
   logPanelSelectedIndex: -1
   logPanelAutoScroll: 1
-  currentFrame: 12706442
+  currentFrame: 18865696
   logs:
-    lastGrabbedIndex: -1
-    lastGrabbedCount: 0
-    proEntries: []
+    lastGrabbedIndex: 0
+    lastGrabbedCount: 1
+    proEntries:
+    - logType: 2
+      ignore: 0
+      processed: 1
+      tempFilterProcessed: 1
+      remoteEndPoint: Local
+      logPanelVisible: 1
+      logPanelIndex: 0
+      logOutputHeight: 27
+      listIndex: 0
+      nativeIndex: 0
+      nativeIdentifier: 0
+      originalLog: Animator is not playing an AnimatorController
+      originalStackTrace: 'Animator is not playing an AnimatorController
+
+        UnityEngine.Animator:GetBool
+        (string)
+
+        CampingTrip.PlayerAnimations:Attack () (at Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs:70)
+
+        CampingTrip.PlayerAnimations:Update
+        () (at Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs:57)
+
+'
+      nativeFileName: Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs
+      nativeFileNamePretty: 
+      nativeLineNumber: 70
+      watchName: 
+      logText: Animator is not playing an AnimatorController
+      logTruncatedText: Animator is not playing an AnimatorController
+      logColumnText: Animator is not playing an AnimatorController
+      fileName: 
+      className: 
+      namespaceName: 
+      lineCount: 1
+      hasSourceCode: 1
+      timeStamp: 13:11:30.731
+      timeFrame: 3
+      timeStampDateTimeNow: 13:11:30.731
+      instanceID: 29770
+      collapsedCount: 0
+      cachedHeight: 19
+      cachedHeightLogWidth: 1219
+      stackEntries:
+      - fileName: Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs
+        fileNameWithoutAssets: Scripts/REDONE/Player/Animation/PlayerAnimations.cs
+        fileNameWithoutAssetsPlusLineNumber: Scripts/REDONE/Player/Animation/PlayerAnimations.cs:70
+        fileNameWithoutPath: PlayerAnimations.cs
+        fileNameWithoutPathPlusLineNumber: PlayerAnimations.cs:70
+        fileNamePretty: PlayerAnimations
+        instanceID: -1
+        className: PlayerAnimations
+        methodName: Attack
+        namespaceName: CampingTrip
+        lineNumberString: 70
+        charNumber: 0
+        stackLabel: PlayerAnimations.Attack()
+        stackLabel2: ' at /Scripts/REDONE/Player/Animation/PlayerAnimations.cs:70'
+        stackLabel1Content:
+          m_Text: PlayerAnimations.Attack()
+          m_Image: {fileID: 0}
+          m_Tooltip: 
+        stackLabel1Width: 156
+        stackLabel1Height: 25
+        stackLabel2Content:
+          m_Text: ' at /Scripts/REDONE/Player/Animation/PlayerAnimations.cs:70'
+          m_Image: {fileID: 0}
+          m_Tooltip: 
+        stackLabel2Width: 369
+        stackLabel2Height: 25
+        stackSourceLineHeight: 17
+        sourceCode:
+        - '68:   {'
+        - '69:       // If attack was pressed, play the animation and start a coroutine
+          to wait for seconds while the animation plays'
+        - '70:       if (attack.WasPressedThisFrame() && !attackAnimator.GetBool(attack1AnimationString))'
+        - '71:       {'
+        - '72:           attackHitBoxTriggerCollider.SetActive(true);'
+        sourceCodeUpdated: 1
+        showSource: 1
+      - fileName: Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs
+        fileNameWithoutAssets: Scripts/REDONE/Player/Animation/PlayerAnimations.cs
+        fileNameWithoutAssetsPlusLineNumber: Scripts/REDONE/Player/Animation/PlayerAnimations.cs:57
+        fileNameWithoutPath: PlayerAnimations.cs
+        fileNameWithoutPathPlusLineNumber: PlayerAnimations.cs:57
+        fileNamePretty: PlayerAnimations
+        instanceID: -1
+        className: PlayerAnimations
+        methodName: Update
+        namespaceName: CampingTrip
+        lineNumberString: 57
+        charNumber: 0
+        stackLabel: PlayerAnimations.Update()
+        stackLabel2: ' at /Scripts/REDONE/Player/Animation/PlayerAnimations.cs:57'
+        stackLabel1Content:
+          m_Text: PlayerAnimations.Update()
+          m_Image: {fileID: 0}
+          m_Tooltip: 
+        stackLabel1Width: 160
+        stackLabel1Height: 25
+        stackLabel2Content:
+          m_Text: ' at /Scripts/REDONE/Player/Animation/PlayerAnimations.cs:57'
+          m_Image: {fileID: 0}
+          m_Tooltip: 
+        stackLabel2Width: 369
+        stackLabel2Height: 25
+        stackSourceLineHeight: 17
+        sourceCode:
+        - '55:   {'
+        - '56:       // Call functions'
+        - '57:       Attack();'
+        - '58:   }'
+        sourceCodeUpdated: 1
+        showSource: 1
+      ignoredStackEntries: []
+      lastMatchedCount: 1
+      belongsToFilters:
+      - name: Warning
+        isEnabled: 1
+        collapsed: 1
+        itemGUID: de01148b-57d8-4a0d-bf31-1b1a853b9594
+        filterName: 
+        mainColor: {r: 1, g: 0.84, b: 0.02, a: 0.7}
+        isStandardFilter: 1
+        isTempFilter: 0
+        filterOnly: 0
+        useAdvancedColors: 0
+        customTextColor: {r: 1, g: 1, b: 1, a: 1}
+        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+        swallowStandard: 1
+        standardCanSwallow: 0
+        overrideStandardColors: 1
+        overrideStandardIcon: 1
+        collapseIconBackground: 0
+        collapseIconSymbol: 0
+        collapseIconLetter: 0
+        collapseIconTexture: 0
+        useIconBackground: 1
+        useIconSymbol: 0
+        useIconLetter: 1
+        useIconTexture: 0
+        filterFormatVersion: 1
+        iconColorize: 0
+        useAndOpForSearchList: 0
+        searchList:
+          list:
+          - name: 
+            isEnabled: 1
+            collapsed: 0
+            itemGUID: c33979b4-1518-457a-815f-a627b358be4a
+            searchString: <Any>
+            searchType: 1
+            removeSearchStringFromLog: 0
+            logTypeList:
+              list:
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: 4c443ac2-ed18-42fb-b3ff-f37095543d98
+                logType: 2
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: ba0ed314-8af8-4260-921c-355fd1a163f4
+                logType: 5
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+            columnTypeList:
+              list:
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: 8605d878-27ad-42ad-ad94-aa612f5155a1
+                columnType: 1
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+            sourceCodeList:
+              list: []
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+          selectionList: 0
+          collapsable: 1
+          collapsed: 0
+        iconLetter:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 3
+          iconType2: 1
+          iconText: '!'
+          useIconTextFirstLetter: 0
+          useIconLogColor: 0
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 2}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 7
+        iconSymbol:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconBackground:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGTRIANGLE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconTexture:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        showInToolbar: 1
+        hideLabelInToolbar: 0
+        hideWhenNoMatches: 0
+      belongsToStandardFilters:
+      - name: Warning
+        isEnabled: 1
+        collapsed: 1
+        itemGUID: de01148b-57d8-4a0d-bf31-1b1a853b9594
+        filterName: 
+        mainColor: {r: 1, g: 0.84, b: 0.02, a: 0.7}
+        isStandardFilter: 1
+        isTempFilter: 0
+        filterOnly: 0
+        useAdvancedColors: 0
+        customTextColor: {r: 1, g: 1, b: 1, a: 1}
+        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+        swallowStandard: 1
+        standardCanSwallow: 0
+        overrideStandardColors: 1
+        overrideStandardIcon: 1
+        collapseIconBackground: 0
+        collapseIconSymbol: 0
+        collapseIconLetter: 0
+        collapseIconTexture: 0
+        useIconBackground: 1
+        useIconSymbol: 0
+        useIconLetter: 1
+        useIconTexture: 0
+        filterFormatVersion: 1
+        iconColorize: 0
+        useAndOpForSearchList: 0
+        searchList:
+          list:
+          - name: 
+            isEnabled: 1
+            collapsed: 0
+            itemGUID: c33979b4-1518-457a-815f-a627b358be4a
+            searchString: <Any>
+            searchType: 1
+            removeSearchStringFromLog: 0
+            logTypeList:
+              list:
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: 4c443ac2-ed18-42fb-b3ff-f37095543d98
+                logType: 2
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: ba0ed314-8af8-4260-921c-355fd1a163f4
+                logType: 5
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+            columnTypeList:
+              list:
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: 8605d878-27ad-42ad-ad94-aa612f5155a1
+                columnType: 1
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+            sourceCodeList:
+              list: []
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+          selectionList: 0
+          collapsable: 1
+          collapsed: 0
+        iconLetter:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 3
+          iconType2: 1
+          iconText: '!'
+          useIconTextFirstLetter: 0
+          useIconLogColor: 0
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 2}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 7
+        iconSymbol:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconBackground:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGTRIANGLE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconTexture:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        showInToolbar: 1
+        hideLabelInToolbar: 0
+        hideWhenNoMatches: 0
+      assignedTempFilter:
+        name: 
+        isEnabled: 1
+        collapsed: 0
+        itemGUID: 
+        filterName: 
+        mainColor: {r: 1, g: 1, b: 1, a: 1}
+        isStandardFilter: 0
+        isTempFilter: 0
+        filterOnly: 0
+        useAdvancedColors: 0
+        customTextColor: {r: 1, g: 1, b: 1, a: 1}
+        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+        swallowStandard: 1
+        standardCanSwallow: 0
+        overrideStandardColors: 1
+        overrideStandardIcon: 1
+        collapseIconBackground: 0
+        collapseIconSymbol: 0
+        collapseIconLetter: 0
+        collapseIconTexture: 0
+        useIconBackground: 1
+        useIconSymbol: 0
+        useIconLetter: 0
+        useIconTexture: 0
+        filterFormatVersion: -1
+        iconColorize: 0
+        useAndOpForSearchList: 0
+        searchList:
+          list: []
+          selectionList: 0
+          collapsable: 1
+          collapsed: 0
+        iconLetter:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconSymbol:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconBackground:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconTexture:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        showInToolbar: 1
+        hideLabelInToolbar: 0
+        hideWhenNoMatches: 0
     newEntries: []
     resetCompilerErrorEntries: 1
     compilerErrorEntries: []
     timeFrames: 
-    _filteredEntries: []
+    _filteredEntries:
+    - logType: 2
+      ignore: 0
+      processed: 1
+      tempFilterProcessed: 1
+      remoteEndPoint: Local
+      logPanelVisible: 1
+      logPanelIndex: 0
+      logOutputHeight: 27
+      listIndex: 0
+      nativeIndex: 0
+      nativeIdentifier: 0
+      originalLog: Animator is not playing an AnimatorController
+      originalStackTrace: 'Animator is not playing an AnimatorController
+
+        UnityEngine.Animator:GetBool
+        (string)
+
+        CampingTrip.PlayerAnimations:Attack () (at Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs:70)
+
+        CampingTrip.PlayerAnimations:Update
+        () (at Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs:57)
+
+'
+      nativeFileName: Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs
+      nativeFileNamePretty: 
+      nativeLineNumber: 70
+      watchName: 
+      logText: Animator is not playing an AnimatorController
+      logTruncatedText: Animator is not playing an AnimatorController
+      logColumnText: Animator is not playing an AnimatorController
+      fileName: 
+      className: 
+      namespaceName: 
+      lineCount: 1
+      hasSourceCode: 1
+      timeStamp: 13:11:30.731
+      timeFrame: 3
+      timeStampDateTimeNow: 13:11:30.731
+      instanceID: 29770
+      collapsedCount: 0
+      cachedHeight: 19
+      cachedHeightLogWidth: 1219
+      stackEntries:
+      - fileName: Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs
+        fileNameWithoutAssets: Scripts/REDONE/Player/Animation/PlayerAnimations.cs
+        fileNameWithoutAssetsPlusLineNumber: Scripts/REDONE/Player/Animation/PlayerAnimations.cs:70
+        fileNameWithoutPath: PlayerAnimations.cs
+        fileNameWithoutPathPlusLineNumber: PlayerAnimations.cs:70
+        fileNamePretty: PlayerAnimations
+        instanceID: -1
+        className: PlayerAnimations
+        methodName: Attack
+        namespaceName: CampingTrip
+        lineNumberString: 70
+        charNumber: 0
+        stackLabel: PlayerAnimations.Attack()
+        stackLabel2: ' at /Scripts/REDONE/Player/Animation/PlayerAnimations.cs:70'
+        stackLabel1Content:
+          m_Text: PlayerAnimations.Attack()
+          m_Image: {fileID: 0}
+          m_Tooltip: 
+        stackLabel1Width: 156
+        stackLabel1Height: 25
+        stackLabel2Content:
+          m_Text: ' at /Scripts/REDONE/Player/Animation/PlayerAnimations.cs:70'
+          m_Image: {fileID: 0}
+          m_Tooltip: 
+        stackLabel2Width: 369
+        stackLabel2Height: 25
+        stackSourceLineHeight: 17
+        sourceCode:
+        - '68:   {'
+        - '69:       // If attack was pressed, play the animation and start a coroutine
+          to wait for seconds while the animation plays'
+        - '70:       if (attack.WasPressedThisFrame() && !attackAnimator.GetBool(attack1AnimationString))'
+        - '71:       {'
+        - '72:           attackHitBoxTriggerCollider.SetActive(true);'
+        sourceCodeUpdated: 1
+        showSource: 1
+      - fileName: Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs
+        fileNameWithoutAssets: Scripts/REDONE/Player/Animation/PlayerAnimations.cs
+        fileNameWithoutAssetsPlusLineNumber: Scripts/REDONE/Player/Animation/PlayerAnimations.cs:57
+        fileNameWithoutPath: PlayerAnimations.cs
+        fileNameWithoutPathPlusLineNumber: PlayerAnimations.cs:57
+        fileNamePretty: PlayerAnimations
+        instanceID: -1
+        className: PlayerAnimations
+        methodName: Update
+        namespaceName: CampingTrip
+        lineNumberString: 57
+        charNumber: 0
+        stackLabel: PlayerAnimations.Update()
+        stackLabel2: ' at /Scripts/REDONE/Player/Animation/PlayerAnimations.cs:57'
+        stackLabel1Content:
+          m_Text: PlayerAnimations.Update()
+          m_Image: {fileID: 0}
+          m_Tooltip: 
+        stackLabel1Width: 160
+        stackLabel1Height: 25
+        stackLabel2Content:
+          m_Text: ' at /Scripts/REDONE/Player/Animation/PlayerAnimations.cs:57'
+          m_Image: {fileID: 0}
+          m_Tooltip: 
+        stackLabel2Width: 369
+        stackLabel2Height: 25
+        stackSourceLineHeight: 17
+        sourceCode:
+        - '55:   {'
+        - '56:       // Call functions'
+        - '57:       Attack();'
+        - '58:   }'
+        sourceCodeUpdated: 1
+        showSource: 1
+      ignoredStackEntries: []
+      lastMatchedCount: 1
+      belongsToFilters:
+      - name: Warning
+        isEnabled: 1
+        collapsed: 1
+        itemGUID: de01148b-57d8-4a0d-bf31-1b1a853b9594
+        filterName: 
+        mainColor: {r: 1, g: 0.84, b: 0.02, a: 0.7}
+        isStandardFilter: 1
+        isTempFilter: 0
+        filterOnly: 0
+        useAdvancedColors: 0
+        customTextColor: {r: 1, g: 1, b: 1, a: 1}
+        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+        swallowStandard: 1
+        standardCanSwallow: 0
+        overrideStandardColors: 1
+        overrideStandardIcon: 1
+        collapseIconBackground: 0
+        collapseIconSymbol: 0
+        collapseIconLetter: 0
+        collapseIconTexture: 0
+        useIconBackground: 1
+        useIconSymbol: 0
+        useIconLetter: 1
+        useIconTexture: 0
+        filterFormatVersion: 1
+        iconColorize: 0
+        useAndOpForSearchList: 0
+        searchList:
+          list:
+          - name: 
+            isEnabled: 1
+            collapsed: 0
+            itemGUID: c33979b4-1518-457a-815f-a627b358be4a
+            searchString: <Any>
+            searchType: 1
+            removeSearchStringFromLog: 0
+            logTypeList:
+              list:
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: 4c443ac2-ed18-42fb-b3ff-f37095543d98
+                logType: 2
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: ba0ed314-8af8-4260-921c-355fd1a163f4
+                logType: 5
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+            columnTypeList:
+              list:
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: 8605d878-27ad-42ad-ad94-aa612f5155a1
+                columnType: 1
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+            sourceCodeList:
+              list: []
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+          selectionList: 0
+          collapsable: 1
+          collapsed: 0
+        iconLetter:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 3
+          iconType2: 1
+          iconText: '!'
+          useIconTextFirstLetter: 0
+          useIconLogColor: 0
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 2}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 7
+        iconSymbol:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconBackground:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGTRIANGLE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconTexture:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        showInToolbar: 1
+        hideLabelInToolbar: 0
+        hideWhenNoMatches: 0
+      belongsToStandardFilters:
+      - name: Warning
+        isEnabled: 1
+        collapsed: 1
+        itemGUID: de01148b-57d8-4a0d-bf31-1b1a853b9594
+        filterName: 
+        mainColor: {r: 1, g: 0.84, b: 0.02, a: 0.7}
+        isStandardFilter: 1
+        isTempFilter: 0
+        filterOnly: 0
+        useAdvancedColors: 0
+        customTextColor: {r: 1, g: 1, b: 1, a: 1}
+        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+        swallowStandard: 1
+        standardCanSwallow: 0
+        overrideStandardColors: 1
+        overrideStandardIcon: 1
+        collapseIconBackground: 0
+        collapseIconSymbol: 0
+        collapseIconLetter: 0
+        collapseIconTexture: 0
+        useIconBackground: 1
+        useIconSymbol: 0
+        useIconLetter: 1
+        useIconTexture: 0
+        filterFormatVersion: 1
+        iconColorize: 0
+        useAndOpForSearchList: 0
+        searchList:
+          list:
+          - name: 
+            isEnabled: 1
+            collapsed: 0
+            itemGUID: c33979b4-1518-457a-815f-a627b358be4a
+            searchString: <Any>
+            searchType: 1
+            removeSearchStringFromLog: 0
+            logTypeList:
+              list:
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: 4c443ac2-ed18-42fb-b3ff-f37095543d98
+                logType: 2
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: ba0ed314-8af8-4260-921c-355fd1a163f4
+                logType: 5
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+            columnTypeList:
+              list:
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: 8605d878-27ad-42ad-ad94-aa612f5155a1
+                columnType: 1
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+            sourceCodeList:
+              list: []
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+          selectionList: 0
+          collapsable: 1
+          collapsed: 0
+        iconLetter:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 3
+          iconType2: 1
+          iconText: '!'
+          useIconTextFirstLetter: 0
+          useIconLogColor: 0
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 2}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 7
+        iconSymbol:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconBackground:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGTRIANGLE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconTexture:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        showInToolbar: 1
+        hideLabelInToolbar: 0
+        hideWhenNoMatches: 0
+      assignedTempFilter:
+        name: 
+        isEnabled: 1
+        collapsed: 0
+        itemGUID: 
+        filterName: 
+        mainColor: {r: 1, g: 1, b: 1, a: 1}
+        isStandardFilter: 0
+        isTempFilter: 0
+        filterOnly: 0
+        useAdvancedColors: 0
+        customTextColor: {r: 1, g: 1, b: 1, a: 1}
+        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+        swallowStandard: 1
+        standardCanSwallow: 0
+        overrideStandardColors: 1
+        overrideStandardIcon: 1
+        collapseIconBackground: 0
+        collapseIconSymbol: 0
+        collapseIconLetter: 0
+        collapseIconTexture: 0
+        useIconBackground: 1
+        useIconSymbol: 0
+        useIconLetter: 0
+        useIconTexture: 0
+        filterFormatVersion: -1
+        iconColorize: 0
+        useAndOpForSearchList: 0
+        searchList:
+          list: []
+          selectionList: 0
+          collapsable: 1
+          collapsed: 0
+        iconLetter:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconSymbol:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconBackground:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconTexture:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        showInToolbar: 1
+        hideLabelInToolbar: 0
+        hideWhenNoMatches: 0
 --- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
