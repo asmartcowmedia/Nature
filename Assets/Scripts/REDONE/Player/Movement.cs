@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     // Serialized and editable from the Unity inspector, not editable in other scripts //
     [FoldoutGroup("Attachable Objects")]
     [Title("Physics")][SerializeField] private new Rigidbody2D rigidbody;
+    [FoldoutGroup("Attachable Objects")][SerializeField] private PlayerAnimations playerAnimations;
     
     [FoldoutGroup("Player Variables")]
     [Title("Movement")][SerializeField] private float movementSpeed;
@@ -57,6 +58,7 @@ public class Movement : MonoBehaviour
     {
         // Call functions
         PlayerMovement();
+        UpdateAnimationVariables();
     }
 
     private void OnDisable() // Called when the object is disabled in the scene
@@ -84,6 +86,11 @@ public class Movement : MonoBehaviour
 
         // Implementation of the movement forces on the player character
         rigidbody.AddForce(velocity);
+    }
+
+    private void UpdateAnimationVariables()
+    {
+        playerAnimations.movementDirection = velocity;
     }
 }
 }

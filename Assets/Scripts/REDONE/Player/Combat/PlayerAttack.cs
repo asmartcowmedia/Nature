@@ -62,7 +62,7 @@ public class PlayerAttack : MonoBehaviour
         // Set the attack hit box rotation to that of the attack direction
         attackHitBox.transform.rotation = Quaternion.Euler(0, 0, attackDirection);
         
-        // If the attack button was pressed, perform the attack logic
+        // If the attack button was pressed, perform the attack logic (not implemented yet)
         if (attack.WasPressedThisFrame())
         {
         }
