@@ -7,40 +7,31 @@ namespace CampingTrip
     public class PlayerHp : MonoBehaviour
     {
         // Serialized and editable from the Unity inspector, not editable in other scripts //
-        [FoldoutGroup("Variables")] 
-        [Title("Health")][SerializeField] private float maxHealth;
-        
-        // Not editable in unity inspector, read only, and not editable in other scripts //
-        [FoldoutGroup("Debug")]
-        [Title("Read Only")][SerializeField][ReadOnly] private float currentHealth;
-        [FoldoutGroup("Debug")][SerializeField][ReadOnly] private bool isTakingDamage;
-        [FoldoutGroup("Debug")][SerializeField][ReadOnly] private bool isHealing;
-        [FoldoutGroup("Debug")][SerializeField][ReadOnly] private float timesDamaged;
-        [FoldoutGroup("Debug")][SerializeField][ReadOnly] private float timesHealed;
-        [FoldoutGroup("Debug")][SerializeField][ReadOnly] private float howLongToDamagePlayer;
+        [FoldoutGroup("Attachable Objects")] 
+        [Title("Health")][SerializeField] private SoHealthPool hpStats;
 
         // IEnumerators //
         private IEnumerator IntervalDamage(float damage, float time, float timesToDamage)
         {
             // if both taking damage and healing, reset variables
-            if (isTakingDamage && isHealing)
+            if (hpStats.isTakingDamage && hpStats.isHealing)
             {
                 ResetDamageCounter();
                 ResetHealCounter();
             }
 
             // while isTakingDamage is true
-            while (isTakingDamage && !isHealing)
+            while (hpStats.isTakingDamage && !hpStats.isHealing)
             {
-                if (currentHealth <= 0)
+                if (hpStats.currentHealth <= 0)
                 {
-                    currentHealth = 0;
+                    hpStats.currentHealth = 0;
                     ResetDamageCounter();
                     yield break;
                 }
                     
                 // debug how long the time is set to when calling IEnumerator
-                howLongToDamagePlayer = time;
+                hpStats.howLongToDamageOrHeal = time;
                 
                 // Call damage function to damage player for amount
                 Damage(damage);
@@ -49,30 +40,30 @@ namespace CampingTrip
                 yield return new WaitForSeconds(time);
 
                 // add one to times damaged
-                timesDamaged++;
+                hpStats.timesDamaged++;
 
                 // check if times damaged is greater than or equal to the times to damage the player and set false if it is
-                if (!(timesDamaged >= timesToDamage)) continue;
-                isTakingDamage = false;
-                timesDamaged = 0;
+                if (!(hpStats.timesDamaged >= timesToDamage)) continue;
+                hpStats.isTakingDamage = false;
+                hpStats.timesDamaged = 0;
             }
         }
         
         private IEnumerator IntervalHealing(float heal, float time, float timesToHeal)
         {
             // if both taking damage and healing, reset variables
-            if (isTakingDamage && isHealing)
+            if (hpStats.isTakingDamage && hpStats.isHealing)
             {
                 ResetDamageCounter();
                 ResetHealCounter();
             }
             
             // while isHealing is true
-            while (isHealing && !isTakingDamage)
+            while (hpStats.isHealing && !hpStats.isTakingDamage)
             {
-                if (currentHealth >= maxHealth)
+                if (hpStats.currentHealth >= hpStats.maxHealth)
                 {
-                    currentHealth = maxHealth;
+                    hpStats.currentHealth = hpStats.maxHealth;
                     ResetHealCounter();
                     yield break;
                 }
@@ -84,12 +75,12 @@ namespace CampingTrip
                 yield return new WaitForSeconds(time);
 
                 // add one to times healed
-                timesHealed++;
+                hpStats.timesHealed++;
 
                 // check if times healed is greater than or equal to times to heal the player and set false if it is
-                if (!(timesHealed >= timesToHeal)) continue;
-                isHealing = false;
-                timesHealed = 0;
+                if (!(hpStats.timesHealed >= timesToHeal)) continue;
+                hpStats.isHealing = false;
+                hpStats.timesHealed = 0;
             }
         }
         
@@ -97,58 +88,47 @@ namespace CampingTrip
         private void Awake()
         {
             // initialize values
-            timesHealed = 0;
-            timesDamaged = 0;
+            hpStats.timesHealed = 0;
+            hpStats.timesDamaged = 0;
         }
 
         private void Start()
         {
-            currentHealth = maxHealth;
+            // reset hp at beginning
+            hpStats.currentHealth = hpStats.maxHealth;
         }
 
         // Public functions : Callable from other scripts or functions //
         // Kills Player outright, might also play animation, or not, idk yet.
-        public void KillPlayer()
+        public void Kill()
         {
             Destroy(gameObject);
-        }
-
-        // public function to get is healing from other scripts
-        public bool GetIsHealing()
-        {
-            return isHealing;
-        }
-
-        // public function to get is healing from other scripts
-        public bool GetIsTakingDamage()
-        {
-            return isTakingDamage;
         }
         
         // Resets current health bool to false, stopping IEnumerator
         public void ResetHealCounter()
         {
-            isHealing = false;
+            hpStats.isHealing = false;
         }
 
         // Resets current damage bool to false, stopping IEnumerator
         public void ResetDamageCounter()
         {
-            isTakingDamage = false;
+            hpStats.isTakingDamage = false;
         }
         
-        // - Set of functions to damage the player with various variables (see last to see how it works)
+        // Set of functions to damage the player with various variables (see last to see how it works)
         public void Damage(float amountToDamage)
         {
             // straight up damage the player for amount, no more, no less
-            currentHealth -= amountToDamage;
+            hpStats.currentHealth -= amountToDamage;
         }
         
         public void Damage(float amountToDamage, bool intervalDamage) // (see last to see how it works)
         {
             if (!intervalDamage) return;
             
-            isTakingDamage = true;
+            hpStats.isTakingDamage = true;
 
             StartCoroutine(IntervalDamage(amountToDamage, .5f, 1));
         }
@@ -157,7 +137,7 @@ namespace CampingTrip
         {
             if (!intervalDamage) return;
             
-            isTakingDamage = true;
+            hpStats.isTakingDamage = true;
             
             StartCoroutine(IntervalDamage(amountToDamage, timeBetweenDamage, 1));
         }
@@ -168,7 +148,7 @@ namespace CampingTrip
             if (!intervalDamage) return;
             
             // set isTakingDamage to true, therefore fulfilling the while loop inside the coroutine
-            isTakingDamage = true;
+            hpStats.isTakingDamage = true;
             
             // start taking interval damage
             StartCoroutine(IntervalDamage(amountToDamage, timeBetweenDamage, timesToDamage));
@@ -179,14 +159,14 @@ namespace CampingTrip
         public void Heal(float amountToHeal)
         {
             // straight up heal the player for amount, no more, no less
-            currentHealth += amountToHeal;
+            hpStats.currentHealth += amountToHeal;
         }
 
         public void Heal(float amountToHeal, bool intervalHeal) // (see last to see how it works)
         {
             if (!intervalHeal) return;
 
-            isHealing = true;
+            hpStats.isHealing = true;
             
             StartCoroutine(IntervalHealing(amountToHeal, .5f, 1)); // (see last to see how it works)
         }
@@ -195,7 +175,7 @@ namespace CampingTrip
         {
             if (!intervalHeal) return;
 
-            isHealing = true;
+            hpStats.isHealing = true;
             
             StartCoroutine(IntervalHealing(amountToHeal, timeBetweenHeal, 1));
         }
@@ -206,7 +186,7 @@ namespace CampingTrip
             if (!intervalHeal) return;
 
             // set isHealing to true, therefore fulfilling the coroutine while loop
-            isHealing = true;
+            hpStats.isHealing = true;
             
             // start healing in intervals
             StartCoroutine(IntervalHealing(amountToHeal, timeBetweenHeal, timesToHeal));

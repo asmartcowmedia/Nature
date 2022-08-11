@@ -24,6 +24,8 @@ namespace CampingTrip
         [FoldoutGroup("Debug")]
         [Title("ReadOnly")][SerializeField][ReadOnly] private string currentAnimation;
         [FoldoutGroup("Debug")][SerializeField][ReadOnly] public Vector2 movementDirection; // this variable is editable from anywhere, it is public
+
+        [FoldoutGroup("Debug")][Title("Bools")][SerializeField][ReadOnly]private bool isFacingUp;
         
         // Not editable in unity inspector and not editable in other scripts //
         private PlayerControls inputSystem;
@@ -96,6 +98,19 @@ namespace CampingTrip
             // grab the movement vectors to change animation states
             var horizontalMovement = movementDirection.x;
             var verticalMovement = movementDirection.y;
+
+            // if there is no vertical or horizontal movement, swap between upward or downward idle animations
+            if (verticalMovement == 0 && horizontalMovement == 0)
+            {
+                if (isFacingUp)
+                {
+                    ChangeAnimationState(anim[2]);
+                }
+                if (!isFacingUp)
+                {
+                    ChangeAnimationState(anim[3]);
+                }
+            }
             
             // if vertical movement is non-existent, swap between animations of walking horizontally
             if (verticalMovement == 0 && horizontalMovement != 0)
@@ -105,9 +120,11 @@ namespace CampingTrip
                 {
                     case > 0:
                         ChangeAnimationState(anim[9]);
+                        isFacingUp = false;
                         break;
                     case < 0:
                         ChangeAnimationState(anim[8]);
+                        isFacingUp = false;
                         break;
                 }
             }
@@ -120,9 +137,11 @@ namespace CampingTrip
                 {
                     case > 0:
                         ChangeAnimationState(anim[6]);
+                        isFacingUp = true;
                         break;
                     case < 0:
                         ChangeAnimationState(anim[7]);
+                        isFacingUp = false;
                         break;
                 }
             }

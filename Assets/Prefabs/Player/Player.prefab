@@ -159,20 +159,17 @@ MonoBehaviour:
   anim:
   - Attack1
   - Player Death
-  - DownIdle
   - UpIdle
+  - DownIdle
   - LeftIdle
   - RightIdle
   - UpWalk
   - DownWalk
   - LeftWalk
   - RightWalk
-  - DownIdle
-  - UpIdle
-  - LeftIdle
-  - RightIdle
   currentAnimation: 
   movementDirection: {x: 0, y: 0}
+  isFacingUp: 0
 --- !u!114 &2532774881111815266
 MonoBehaviour:
   m_ObjectHideFlags: 0
