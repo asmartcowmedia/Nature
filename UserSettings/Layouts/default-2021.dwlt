@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1706.6666
     height: 917.7778
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Console Pro
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 86
+  controlID: 128
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,12 +139,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1376
+    width: 1277.3334
     height: 867.7778
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 87
+  controlID: 99
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -164,12 +164,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1376
+    width: 1277.3334
     height: 559.55554
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 88
+  controlID: 100
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -187,10 +187,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 235.11111
+    width: 217.77777
     height: 559.55554
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -211,9 +211,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 235.11111
+    x: 217.77777
     y: 0
-    width: 1140.8889
+    width: 1059.5557
     height: 559.55554
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -244,12 +244,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 559.55554
-    width: 1376
+    width: 1277.3334
     height: 308.22223
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 38
+  controlID: 41
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -267,7 +267,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 531.55554
+    width: 560.44446
     height: 308.22223
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
@@ -291,9 +291,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 531.55554
+    x: 560.44446
     y: 0
-    width: 844.44446
+    width: 716.8889
     height: 308.22223
   m_MinSize: {x: 202, y: 141}
   m_MaxSize: {x: 4002, y: 4021}
@@ -318,9 +318,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1376
+    x: 1277.3334
     y: 0
-    width: 330.66663
+    width: 429.33325
     height: 867.7778
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
@@ -379,7 +379,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 72.44444
-    width: 234.11111
+    width: 216.77777
     height: 538.55554
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -388,9 +388,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 6834fdff
+      m_SelectedIDs: da69feff
       m_LastClickedID: 0
-      m_ExpandedIDs: 74c9fcff9c9cfdff54bffdff145bfeff60b0ffff70b0ffff82b0ffffa0c6fffff8ccffff02cdffffaeceffffe6faffff26750000bc750000
+      m_ExpandedIDs: d4aafdffb2fbfdfff00afeffc64efeff24fbffff9a74000000760000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -434,9 +434,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 235.11111
+    x: 217.77779
     y: 72.44444
-    width: 1138.8889
+    width: 1057.5557
     height: 538.55554
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -448,7 +448,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 1
       snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: -98.22217, y: -25.777771}
+      snapOffsetDelta: {x: -98.22223, y: -25.777771}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -661,9 +661,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 76.19258, y: 471.47546, z: -0.19758424}
+    m_Target: {x: 2.844712, y: 0.4667442, z: -0.019314159}
     speed: 2
-    m_Value: {x: 76.19258, y: 471.47546, z: -0.19758424}
+    m_Value: {x: 2.844712, y: 0.4667442, z: -0.019314159}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -714,9 +714,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 85.21699
+    m_Target: 2.638527
     speed: 2
-    m_Value: 85.21699
+    m_Value: 2.638527
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -761,9 +761,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 235.11111
+    x: 217.77779
     y: 72.44444
-    width: 1138.8889
+    width: 1057.5557
     height: 538.55554
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -775,7 +775,7 @@ MonoBehaviour:
   m_ShowGizmos: 1
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1138.8889, y: 517.55554}
+  m_TargetSize: {x: 1057.5557, y: 517.55554}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -790,8 +790,8 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -253.08643
-    m_HBaseRangeMax: 253.08643
+    m_HBaseRangeMin: -235.01237
+    m_HBaseRangeMax: 235.01237
     m_VBaseRangeMin: -115.012344
     m_VBaseRangeMax: 115.012344
     m_HAllowExceedBaseRangeMin: 1
@@ -802,7 +802,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -811,23 +811,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 1138.8889
+      width: 1057.5557
       height: 517.55554
     m_Scale: {x: 2, y: 2}
-    m_Translation: {x: 569.44446, y: 258.77777}
+    m_Translation: {x: 528.77783, y: 258.77777}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -284.72223
+      x: -264.38892
       y: -129.38889
-      width: 569.44446
+      width: 528.77783
       height: 258.77777
     m_MinimalGUI: 1
   m_defaultScale: 2
-  m_LastWindowPixelSize: {x: 2562.5, y: 1211.75}
+  m_LastWindowPixelSize: {x: 2379.5002, y: 1211.75}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -998,7 +998,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 632
-    width: 530.55554
+    width: 559.44446
     height: 287.22223
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -1017,36 +1017,36 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/REDONE/Scriptable Objects
+    - Assets/REDONE/Scripts/Scriptable Objects/Inventory/Inventories
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/REDONE/Scriptable Objects
+  - Assets/REDONE/Scripts/Scriptable Objects/Inventory/Inventories
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Unity\Projects\Nature
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 600.7778}
-    m_SelectedIDs: b2b40000
-    m_LastClickedID: 46258
-    m_ExpandedIDs: 00000000ac760000ae760000b0760000b2760000b4760000b6760000b8760000ba760000bc760000be7600000077000050770000b2b4000000ca9a3b
+    scrollPos: {x: 0, y: 251}
+    m_SelectedIDs: dc100100
+    m_LastClickedID: 69852
+    m_ExpandedIDs: 00000000a2770000a8770000aa770000ac770000ae770000b0770000b4770000b67700000e780000107800001c780000fe0f0100e01001000a1c010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Inventories
+      m_OriginalName: Inventories
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 69852
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_SearchString: 
@@ -1060,7 +1060,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ac760000ae760000b0760000b2760000b4760000b6760000b8760000ba760000bc760000be760000
+    m_ExpandedIDs: 00000000a2770000a4770000a6770000a8770000aa770000ac770000ae770000b0770000b2770000b4770000b6770000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1136,9 +1136,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 531.55554
+    x: 560.44446
     y: 632
-    width: 842.44446
+    width: 714.8889
     height: 287.22223
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -1147,12 +1147,12 @@ MonoBehaviour:
   logPanelScroll: {x: 0, y: -39.333332}
   logPanelSelectedIndex: -1
   logPanelAutoScroll: 1
-  currentFrame: 19869046
+  currentFrame: 20467832
   logs:
     lastGrabbedIndex: 0
     lastGrabbedCount: 1
     proEntries:
-    - logType: 2
+    - logType: 4
       ignore: 0
       processed: 1
       tempFilterProcessed: 1
@@ -1163,124 +1163,121 @@ MonoBehaviour:
       listIndex: 0
       nativeIndex: 0
       nativeIdentifier: 0
-      originalLog: Animator is not playing an AnimatorController
-      originalStackTrace: 'Animator is not playing an AnimatorController
+      originalLog: '[Worker4] KeyNotFoundException: The given key ''1'' was not present
+        in the dictionary.'
+      originalStackTrace: '[Worker4] KeyNotFoundException: The given key ''1'' was
+        not present in the dictionary.
 
-        UnityEngine.Animator:GetBool
-        (string)
+        System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item
+        (TKey key) (at <e40e5a8f982c4b618a930d29f9bd091c>:0)
 
-        CampingTrip.PlayerAnimations:Attack () (at Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs:87)
-
-        CampingTrip.PlayerAnimations:Update
-        () (at Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs:71)
+        CampingTrip.SoInventoryObject.OnAfterDeserialize
+        () (at Assets/REDONE/Scripts/Scriptable Objects/Inventory/Scripts/SoInventoryObject.cs:45)
 
 '
-      nativeFileName: Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs
+      nativeFileName: Assets/REDONE/Scripts/Scriptable Objects/Inventory/Scripts/SoInventoryObject.cs
       nativeFileNamePretty: 
-      nativeLineNumber: 87
+      nativeLineNumber: 45
       watchName: 
-      logText: Animator is not playing an AnimatorController
-      logTruncatedText: Animator is not playing an AnimatorController
-      logColumnText: Animator is not playing an AnimatorController
+      logText: '[Worker4] KeyNotFoundException: The given key ''1'' was not present
+        in the dictionary.'
+      logTruncatedText: '[Worker4] KeyNotFoundException: The given key ''1'' was
+        not present in the dictionary.'
+      logColumnText: '[Worker4] KeyNotFoundException: The given key ''1'' was not
+        present in the dictionary.'
       fileName: 
       className: 
       namespaceName: 
       lineCount: 1
       hasSourceCode: 1
-      timeStamp: 06:48:30.028
-      timeFrame: 4
-      timeStampDateTimeNow: 06:48:30.028
-      instanceID: -1332
+      timeStamp: 05:00:56
+      timeFrame: -1
+      timeStampDateTimeNow: 
+      instanceID: 0
       collapsedCount: 0
       cachedHeight: 18.666668
-      cachedHeightLogWidth: 798.44446
+      cachedHeightLogWidth: 670.8889
       stackEntries:
-      - fileName: Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs
-        fileNameWithoutAssets: Scripts/REDONE/Player/Animation/PlayerAnimations.cs
-        fileNameWithoutAssetsPlusLineNumber: Scripts/REDONE/Player/Animation/PlayerAnimations.cs:87
-        fileNameWithoutPath: PlayerAnimations.cs
-        fileNameWithoutPathPlusLineNumber: PlayerAnimations.cs:87
-        fileNamePretty: PlayerAnimations
+      - fileName: <e40e5a8f982c4b618a930d29f9bd091c>
+        fileNameWithoutAssets: <e40e5a8f982c4b618a930d29f9bd091c>
+        fileNameWithoutAssetsPlusLineNumber: <e40e5a8f982c4b618a930d29f9bd091c>
+        fileNameWithoutPath: _e40e5a8f982c4b618a930d29f9bd091c_
+        fileNameWithoutPathPlusLineNumber: _e40e5a8f982c4b618a930d29f9bd091c_
+        fileNamePretty: _e40e5a8f982c4b618a930d29f9bd091c_
         instanceID: -1
-        className: PlayerAnimations
-        methodName: Attack
-        namespaceName: CampingTrip
-        lineNumberString: 87
+        className: System.Collections.Generic.Dictionary`2[TKey,TValue]
+        methodName: get_Item
+        namespaceName: None
+        lineNumberString: 0
         charNumber: 0
-        stackLabel: PlayerAnimations.Attack()
-        stackLabel2: ' at /Scripts/REDONE/Player/Animation/PlayerAnimations.cs:87'
+        stackLabel: System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item()
+        stackLabel2: ' at <e40e5a8f982c4b618a930d29f9bd091c>:0'
         stackLabel1Content:
-          m_Text: PlayerAnimations.Attack()
+          m_Text: System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item()
           m_Image: {fileID: 0}
           m_Tooltip: 
-        stackLabel1Width: 156.88889
+        stackLabel1Width: 390.22223
         stackLabel1Height: 24.666668
         stackLabel2Content:
-          m_Text: ' at /Scripts/REDONE/Player/Animation/PlayerAnimations.cs:87'
+          m_Text: ' at <e40e5a8f982c4b618a930d29f9bd091c>:0'
           m_Image: {fileID: 0}
           m_Tooltip: 
-        stackLabel2Width: 370.22223
+        stackLabel2Width: 284.44446
         stackLabel2Height: 24.666668
         stackSourceLineHeight: 16.666668
-        sourceCode:
-        - '85:   {'
-        - '86:       // If attack was pressed, play the animation and start a coroutine
-          to wait for seconds while the animation plays'
-        - '87:       if (!attack.WasPressedThisFrame() || attackAnimator.GetBool(anim[0]))
-          return;'
-        - '89:       attackHitBoxTriggerCollider.SetActive(true);'
+        sourceCode: []
         sourceCodeUpdated: 1
         showSource: 1
-      - fileName: Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs
-        fileNameWithoutAssets: Scripts/REDONE/Player/Animation/PlayerAnimations.cs
-        fileNameWithoutAssetsPlusLineNumber: Scripts/REDONE/Player/Animation/PlayerAnimations.cs:71
-        fileNameWithoutPath: PlayerAnimations.cs
-        fileNameWithoutPathPlusLineNumber: PlayerAnimations.cs:71
-        fileNamePretty: PlayerAnimations
+      - fileName: Assets/REDONE/Scripts/Scriptable Objects/Inventory/Scripts/SoInventoryObject.cs
+        fileNameWithoutAssets: REDONE/Scripts/Scriptable Objects/Inventory/Scripts/SoInventoryObject.cs
+        fileNameWithoutAssetsPlusLineNumber: REDONE/Scripts/Scriptable Objects/Inventory/Scripts/SoInventoryObject.cs:45
+        fileNameWithoutPath: SoInventoryObject.cs
+        fileNameWithoutPathPlusLineNumber: SoInventoryObject.cs:45
+        fileNamePretty: SoInventoryObject
         instanceID: -1
-        className: PlayerAnimations
-        methodName: Update
+        className: SoInventoryObject
+        methodName: OnAfterDeserialize
         namespaceName: CampingTrip
-        lineNumberString: 71
+        lineNumberString: 45
         charNumber: 0
-        stackLabel: PlayerAnimations.Update()
-        stackLabel2: ' at /Scripts/REDONE/Player/Animation/PlayerAnimations.cs:71'
+        stackLabel: SoInventoryObject.OnAfterDeserialize()
+        stackLabel2: ' at /REDONE/Scripts/Scriptable Objects/Inventory/Scripts/SoInventoryObject.cs:45'
         stackLabel1Content:
-          m_Text: PlayerAnimations.Update()
+          m_Text: SoInventoryObject.OnAfterDeserialize()
           m_Image: {fileID: 0}
           m_Tooltip: 
-        stackLabel1Width: 160
+        stackLabel1Width: 235.11111
         stackLabel1Height: 24.666668
         stackLabel2Content:
-          m_Text: ' at /Scripts/REDONE/Player/Animation/PlayerAnimations.cs:71'
+          m_Text: ' at /REDONE/Scripts/Scriptable Objects/Inventory/Scripts/SoInventoryObject.cs:45'
           m_Image: {fileID: 0}
           m_Tooltip: 
-        stackLabel2Width: 368.44446
+        stackLabel2Width: 492.44446
         stackLabel2Height: 24.666668
         stackSourceLineHeight: 16.666668
         sourceCode:
-        - '69:   {'
-        - '70:       // Call functions'
-        - '71:       Attack();'
-        - '72:       Movement();'
-        - '73:       GetMouseDirection();'
+        - '43:       {'
+        - '44:           for (var i = 0; i < container.Count; i++) '
+        - '45:               container[i].item = database.GetItem[container[i].id];'
+        - '46:       }'
+        - '47:   }'
         sourceCodeUpdated: 1
         showSource: 1
       ignoredStackEntries: []
       lastMatchedCount: 1
       belongsToFilters:
-      - name: Warning
+      - name: Exception
         isEnabled: 1
         collapsed: 1
-        itemGUID: 77f68e97-4482-4f72-9c7b-208acd0347cd
+        itemGUID: bf6e5ef4-1163-4483-b807-e633eaadb7fb
         filterName: 
-        mainColor: {r: 1, g: 0.84, b: 0.02, a: 0.7}
+        mainColor: {r: 0.616, g: 0, b: 1, a: 0.7}
         isStandardFilter: 1
         isTempFilter: 0
         filterOnly: 0
-        useAdvancedColors: 0
+        useAdvancedColors: 1
         customTextColor: {r: 1, g: 1, b: 1, a: 1}
-        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+        customBackgroundColor: {r: 0.616, g: 0, b: 1, a: 0.7}
         swallowStandard: 1
         standardCanSwallow: 0
         overrideStandardColors: 1
@@ -1301,7 +1298,7 @@ MonoBehaviour:
           - name: 
             isEnabled: 1
             collapsed: 0
-            itemGUID: b6381dee-be25-4141-abfb-2cbd4ff98cbf
+            itemGUID: 6c763a05-70e3-4d3f-8bd5-fa1210f59cf6
             searchString: <Any>
             searchType: 1
             removeSearchStringFromLog: 0
@@ -1310,13 +1307,13 @@ MonoBehaviour:
               - name: 
                 isEnabled: 1
                 collapsed: 0
-                itemGUID: fe87a261-e9d0-4157-bb1f-8716eddbaead
-                logType: 2
+                itemGUID: 94b18c9c-d5fa-4a18-a54f-dcad82a1475c
+                logType: 4
               - name: 
                 isEnabled: 1
                 collapsed: 0
-                itemGUID: 461ea621-026e-47b8-a8d6-adb7932ea5dc
-                logType: 5
+                itemGUID: 6375d2af-91fc-4589-8bf0-3e5f37c4e340
+                logType: 7
               selectionList: 0
               collapsable: 1
               collapsed: 0
@@ -1325,7 +1322,7 @@ MonoBehaviour:
               - name: 
                 isEnabled: 1
                 collapsed: 0
-                itemGUID: 9f728453-f4ed-4421-aa91-2867f01d5e97
+                itemGUID: 01e09725-6620-4139-b37e-db948690f12d
                 columnType: 1
               selectionList: 0
               collapsable: 1
@@ -1345,14 +1342,14 @@ MonoBehaviour:
           itemGUID: 
           iconType: 3
           iconType2: 1
-          iconText: '!'
+          iconText: X
           useIconTextFirstLetter: 0
           useIconLogColor: 0
           iconColor: {r: 1, g: 1, b: 1, a: 1}
           iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
           iconTextureGUID: 
           useIconShadow: 1
-          iconOffset: {x: 0, y: 2}
+          iconOffset: {x: 0, y: 0}
           iconShadowOffset: {x: 0.5, y: 0.5}
           iconSize: 7
         iconSymbol:
@@ -1383,7 +1380,7 @@ MonoBehaviour:
           useIconTextFirstLetter: 1
           useIconLogColor: 1
           iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGTRIANGLE
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
           iconTextureGUID: 
           useIconShadow: 1
           iconOffset: {x: 0, y: 0}
@@ -1408,20 +1405,20 @@ MonoBehaviour:
           iconSize: 13
         showInToolbar: 1
         hideLabelInToolbar: 0
-        hideWhenNoMatches: 0
+        hideWhenNoMatches: 1
       belongsToStandardFilters:
-      - name: Warning
+      - name: Exception
         isEnabled: 1
         collapsed: 1
-        itemGUID: 77f68e97-4482-4f72-9c7b-208acd0347cd
+        itemGUID: bf6e5ef4-1163-4483-b807-e633eaadb7fb
         filterName: 
-        mainColor: {r: 1, g: 0.84, b: 0.02, a: 0.7}
+        mainColor: {r: 0.616, g: 0, b: 1, a: 0.7}
         isStandardFilter: 1
         isTempFilter: 0
         filterOnly: 0
-        useAdvancedColors: 0
+        useAdvancedColors: 1
         customTextColor: {r: 1, g: 1, b: 1, a: 1}
-        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+        customBackgroundColor: {r: 0.616, g: 0, b: 1, a: 0.7}
         swallowStandard: 1
         standardCanSwallow: 0
         overrideStandardColors: 1
@@ -1442,7 +1439,7 @@ MonoBehaviour:
           - name: 
             isEnabled: 1
             collapsed: 0
-            itemGUID: b6381dee-be25-4141-abfb-2cbd4ff98cbf
+            itemGUID: 6c763a05-70e3-4d3f-8bd5-fa1210f59cf6
             searchString: <Any>
             searchType: 1
             removeSearchStringFromLog: 0
@@ -1451,13 +1448,13 @@ MonoBehaviour:
               - name: 
                 isEnabled: 1
                 collapsed: 0
-                itemGUID: fe87a261-e9d0-4157-bb1f-8716eddbaead
-                logType: 2
+                itemGUID: 94b18c9c-d5fa-4a18-a54f-dcad82a1475c
+                logType: 4
               - name: 
                 isEnabled: 1
                 collapsed: 0
-                itemGUID: 461ea621-026e-47b8-a8d6-adb7932ea5dc
-                logType: 5
+                itemGUID: 6375d2af-91fc-4589-8bf0-3e5f37c4e340
+                logType: 7
               selectionList: 0
               collapsable: 1
               collapsed: 0
@@ -1466,7 +1463,7 @@ MonoBehaviour:
               - name: 
                 isEnabled: 1
                 collapsed: 0
-                itemGUID: 9f728453-f4ed-4421-aa91-2867f01d5e97
+                itemGUID: 01e09725-6620-4139-b37e-db948690f12d
                 columnType: 1
               selectionList: 0
               collapsable: 1
@@ -1486,14 +1483,14 @@ MonoBehaviour:
           itemGUID: 
           iconType: 3
           iconType2: 1
-          iconText: '!'
+          iconText: X
           useIconTextFirstLetter: 0
           useIconLogColor: 0
           iconColor: {r: 1, g: 1, b: 1, a: 1}
           iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
           iconTextureGUID: 
           useIconShadow: 1
-          iconOffset: {x: 0, y: 2}
+          iconOffset: {x: 0, y: 0}
           iconShadowOffset: {x: 0.5, y: 0.5}
           iconSize: 7
         iconSymbol:
@@ -1524,7 +1521,7 @@ MonoBehaviour:
           useIconTextFirstLetter: 1
           useIconLogColor: 1
           iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGTRIANGLE
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
           iconTextureGUID: 
           useIconShadow: 1
           iconOffset: {x: 0, y: 0}
@@ -1549,7 +1546,7 @@ MonoBehaviour:
           iconSize: 13
         showInToolbar: 1
         hideLabelInToolbar: 0
-        hideWhenNoMatches: 0
+        hideWhenNoMatches: 1
       assignedTempFilter:
         name: 
         isEnabled: 1
@@ -1659,7 +1656,7 @@ MonoBehaviour:
     compilerErrorEntries: []
     timeFrames: 
     _filteredEntries:
-    - logType: 2
+    - logType: 4
       ignore: 0
       processed: 1
       tempFilterProcessed: 1
@@ -1670,124 +1667,121 @@ MonoBehaviour:
       listIndex: 0
       nativeIndex: 0
       nativeIdentifier: 0
-      originalLog: Animator is not playing an AnimatorController
-      originalStackTrace: 'Animator is not playing an AnimatorController
+      originalLog: '[Worker4] KeyNotFoundException: The given key ''1'' was not present
+        in the dictionary.'
+      originalStackTrace: '[Worker4] KeyNotFoundException: The given key ''1'' was
+        not present in the dictionary.
 
-        UnityEngine.Animator:GetBool
-        (string)
+        System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item
+        (TKey key) (at <e40e5a8f982c4b618a930d29f9bd091c>:0)
 
-        CampingTrip.PlayerAnimations:Attack () (at Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs:87)
-
-        CampingTrip.PlayerAnimations:Update
-        () (at Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs:71)
+        CampingTrip.SoInventoryObject.OnAfterDeserialize
+        () (at Assets/REDONE/Scripts/Scriptable Objects/Inventory/Scripts/SoInventoryObject.cs:45)
 
 '
-      nativeFileName: Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs
+      nativeFileName: Assets/REDONE/Scripts/Scriptable Objects/Inventory/Scripts/SoInventoryObject.cs
       nativeFileNamePretty: 
-      nativeLineNumber: 87
+      nativeLineNumber: 45
       watchName: 
-      logText: Animator is not playing an AnimatorController
-      logTruncatedText: Animator is not playing an AnimatorController
-      logColumnText: Animator is not playing an AnimatorController
+      logText: '[Worker4] KeyNotFoundException: The given key ''1'' was not present
+        in the dictionary.'
+      logTruncatedText: '[Worker4] KeyNotFoundException: The given key ''1'' was
+        not present in the dictionary.'
+      logColumnText: '[Worker4] KeyNotFoundException: The given key ''1'' was not
+        present in the dictionary.'
       fileName: 
       className: 
       namespaceName: 
       lineCount: 1
       hasSourceCode: 1
-      timeStamp: 06:48:30.028
-      timeFrame: 4
-      timeStampDateTimeNow: 06:48:30.028
-      instanceID: -1332
+      timeStamp: 05:00:56
+      timeFrame: -1
+      timeStampDateTimeNow: 
+      instanceID: 0
       collapsedCount: 0
       cachedHeight: 18.666668
-      cachedHeightLogWidth: 798.44446
+      cachedHeightLogWidth: 670.8889
       stackEntries:
-      - fileName: Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs
-        fileNameWithoutAssets: Scripts/REDONE/Player/Animation/PlayerAnimations.cs
-        fileNameWithoutAssetsPlusLineNumber: Scripts/REDONE/Player/Animation/PlayerAnimations.cs:87
-        fileNameWithoutPath: PlayerAnimations.cs
-        fileNameWithoutPathPlusLineNumber: PlayerAnimations.cs:87
-        fileNamePretty: PlayerAnimations
+      - fileName: <e40e5a8f982c4b618a930d29f9bd091c>
+        fileNameWithoutAssets: <e40e5a8f982c4b618a930d29f9bd091c>
+        fileNameWithoutAssetsPlusLineNumber: <e40e5a8f982c4b618a930d29f9bd091c>
+        fileNameWithoutPath: _e40e5a8f982c4b618a930d29f9bd091c_
+        fileNameWithoutPathPlusLineNumber: _e40e5a8f982c4b618a930d29f9bd091c_
+        fileNamePretty: _e40e5a8f982c4b618a930d29f9bd091c_
         instanceID: -1
-        className: PlayerAnimations
-        methodName: Attack
-        namespaceName: CampingTrip
-        lineNumberString: 87
+        className: System.Collections.Generic.Dictionary`2[TKey,TValue]
+        methodName: get_Item
+        namespaceName: None
+        lineNumberString: 0
         charNumber: 0
-        stackLabel: PlayerAnimations.Attack()
-        stackLabel2: ' at /Scripts/REDONE/Player/Animation/PlayerAnimations.cs:87'
+        stackLabel: System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item()
+        stackLabel2: ' at <e40e5a8f982c4b618a930d29f9bd091c>:0'
         stackLabel1Content:
-          m_Text: PlayerAnimations.Attack()
+          m_Text: System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item()
           m_Image: {fileID: 0}
           m_Tooltip: 
-        stackLabel1Width: 156.88889
+        stackLabel1Width: 390.22223
         stackLabel1Height: 24.666668
         stackLabel2Content:
-          m_Text: ' at /Scripts/REDONE/Player/Animation/PlayerAnimations.cs:87'
+          m_Text: ' at <e40e5a8f982c4b618a930d29f9bd091c>:0'
           m_Image: {fileID: 0}
           m_Tooltip: 
-        stackLabel2Width: 370.22223
+        stackLabel2Width: 284.44446
         stackLabel2Height: 24.666668
         stackSourceLineHeight: 16.666668
-        sourceCode:
-        - '85:   {'
-        - '86:       // If attack was pressed, play the animation and start a coroutine
-          to wait for seconds while the animation plays'
-        - '87:       if (!attack.WasPressedThisFrame() || attackAnimator.GetBool(anim[0]))
-          return;'
-        - '89:       attackHitBoxTriggerCollider.SetActive(true);'
+        sourceCode: []
         sourceCodeUpdated: 1
         showSource: 1
-      - fileName: Assets/Scripts/REDONE/Player/Animation/PlayerAnimations.cs
-        fileNameWithoutAssets: Scripts/REDONE/Player/Animation/PlayerAnimations.cs
-        fileNameWithoutAssetsPlusLineNumber: Scripts/REDONE/Player/Animation/PlayerAnimations.cs:71
-        fileNameWithoutPath: PlayerAnimations.cs
-        fileNameWithoutPathPlusLineNumber: PlayerAnimations.cs:71
-        fileNamePretty: PlayerAnimations
+      - fileName: Assets/REDONE/Scripts/Scriptable Objects/Inventory/Scripts/SoInventoryObject.cs
+        fileNameWithoutAssets: REDONE/Scripts/Scriptable Objects/Inventory/Scripts/SoInventoryObject.cs
+        fileNameWithoutAssetsPlusLineNumber: REDONE/Scripts/Scriptable Objects/Inventory/Scripts/SoInventoryObject.cs:45
+        fileNameWithoutPath: SoInventoryObject.cs
+        fileNameWithoutPathPlusLineNumber: SoInventoryObject.cs:45
+        fileNamePretty: SoInventoryObject
         instanceID: -1
-        className: PlayerAnimations
-        methodName: Update
+        className: SoInventoryObject
+        methodName: OnAfterDeserialize
         namespaceName: CampingTrip
-        lineNumberString: 71
+        lineNumberString: 45
         charNumber: 0
-        stackLabel: PlayerAnimations.Update()
-        stackLabel2: ' at /Scripts/REDONE/Player/Animation/PlayerAnimations.cs:71'
+        stackLabel: SoInventoryObject.OnAfterDeserialize()
+        stackLabel2: ' at /REDONE/Scripts/Scriptable Objects/Inventory/Scripts/SoInventoryObject.cs:45'
         stackLabel1Content:
-          m_Text: PlayerAnimations.Update()
+          m_Text: SoInventoryObject.OnAfterDeserialize()
           m_Image: {fileID: 0}
           m_Tooltip: 
-        stackLabel1Width: 160
+        stackLabel1Width: 235.11111
         stackLabel1Height: 24.666668
         stackLabel2Content:
-          m_Text: ' at /Scripts/REDONE/Player/Animation/PlayerAnimations.cs:71'
+          m_Text: ' at /REDONE/Scripts/Scriptable Objects/Inventory/Scripts/SoInventoryObject.cs:45'
           m_Image: {fileID: 0}
           m_Tooltip: 
-        stackLabel2Width: 368.44446
+        stackLabel2Width: 492.44446
         stackLabel2Height: 24.666668
         stackSourceLineHeight: 16.666668
         sourceCode:
-        - '69:   {'
-        - '70:       // Call functions'
-        - '71:       Attack();'
-        - '72:       Movement();'
-        - '73:       GetMouseDirection();'
+        - '43:       {'
+        - '44:           for (var i = 0; i < container.Count; i++) '
+        - '45:               container[i].item = database.GetItem[container[i].id];'
+        - '46:       }'
+        - '47:   }'
         sourceCodeUpdated: 1
         showSource: 1
       ignoredStackEntries: []
       lastMatchedCount: 1
       belongsToFilters:
-      - name: Warning
+      - name: Exception
         isEnabled: 1
         collapsed: 1
-        itemGUID: 77f68e97-4482-4f72-9c7b-208acd0347cd
+        itemGUID: bf6e5ef4-1163-4483-b807-e633eaadb7fb
         filterName: 
-        mainColor: {r: 1, g: 0.84, b: 0.02, a: 0.7}
+        mainColor: {r: 0.616, g: 0, b: 1, a: 0.7}
         isStandardFilter: 1
         isTempFilter: 0
         filterOnly: 0
-        useAdvancedColors: 0
+        useAdvancedColors: 1
         customTextColor: {r: 1, g: 1, b: 1, a: 1}
-        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+        customBackgroundColor: {r: 0.616, g: 0, b: 1, a: 0.7}
         swallowStandard: 1
         standardCanSwallow: 0
         overrideStandardColors: 1
@@ -1808,7 +1802,7 @@ MonoBehaviour:
           - name: 
             isEnabled: 1
             collapsed: 0
-            itemGUID: b6381dee-be25-4141-abfb-2cbd4ff98cbf
+            itemGUID: 6c763a05-70e3-4d3f-8bd5-fa1210f59cf6
             searchString: <Any>
             searchType: 1
             removeSearchStringFromLog: 0
@@ -1817,13 +1811,13 @@ MonoBehaviour:
               - name: 
                 isEnabled: 1
                 collapsed: 0
-                itemGUID: fe87a261-e9d0-4157-bb1f-8716eddbaead
-                logType: 2
+                itemGUID: 94b18c9c-d5fa-4a18-a54f-dcad82a1475c
+                logType: 4
               - name: 
                 isEnabled: 1
                 collapsed: 0
-                itemGUID: 461ea621-026e-47b8-a8d6-adb7932ea5dc
-                logType: 5
+                itemGUID: 6375d2af-91fc-4589-8bf0-3e5f37c4e340
+                logType: 7
               selectionList: 0
               collapsable: 1
               collapsed: 0
@@ -1832,7 +1826,7 @@ MonoBehaviour:
               - name: 
                 isEnabled: 1
                 collapsed: 0
-                itemGUID: 9f728453-f4ed-4421-aa91-2867f01d5e97
+                itemGUID: 01e09725-6620-4139-b37e-db948690f12d
                 columnType: 1
               selectionList: 0
               collapsable: 1
@@ -1852,14 +1846,14 @@ MonoBehaviour:
           itemGUID: 
           iconType: 3
           iconType2: 1
-          iconText: '!'
+          iconText: X
           useIconTextFirstLetter: 0
           useIconLogColor: 0
           iconColor: {r: 1, g: 1, b: 1, a: 1}
           iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
           iconTextureGUID: 
           useIconShadow: 1
-          iconOffset: {x: 0, y: 2}
+          iconOffset: {x: 0, y: 0}
           iconShadowOffset: {x: 0.5, y: 0.5}
           iconSize: 7
         iconSymbol:
@@ -1890,7 +1884,7 @@ MonoBehaviour:
           useIconTextFirstLetter: 1
           useIconLogColor: 1
           iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGTRIANGLE
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
           iconTextureGUID: 
           useIconShadow: 1
           iconOffset: {x: 0, y: 0}
@@ -1915,20 +1909,20 @@ MonoBehaviour:
           iconSize: 13
         showInToolbar: 1
         hideLabelInToolbar: 0
-        hideWhenNoMatches: 0
+        hideWhenNoMatches: 1
       belongsToStandardFilters:
-      - name: Warning
+      - name: Exception
         isEnabled: 1
         collapsed: 1
-        itemGUID: 77f68e97-4482-4f72-9c7b-208acd0347cd
+        itemGUID: bf6e5ef4-1163-4483-b807-e633eaadb7fb
         filterName: 
-        mainColor: {r: 1, g: 0.84, b: 0.02, a: 0.7}
+        mainColor: {r: 0.616, g: 0, b: 1, a: 0.7}
         isStandardFilter: 1
         isTempFilter: 0
         filterOnly: 0
-        useAdvancedColors: 0
+        useAdvancedColors: 1
         customTextColor: {r: 1, g: 1, b: 1, a: 1}
-        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+        customBackgroundColor: {r: 0.616, g: 0, b: 1, a: 0.7}
         swallowStandard: 1
         standardCanSwallow: 0
         overrideStandardColors: 1
@@ -1949,7 +1943,7 @@ MonoBehaviour:
           - name: 
             isEnabled: 1
             collapsed: 0
-            itemGUID: b6381dee-be25-4141-abfb-2cbd4ff98cbf
+            itemGUID: 6c763a05-70e3-4d3f-8bd5-fa1210f59cf6
             searchString: <Any>
             searchType: 1
             removeSearchStringFromLog: 0
@@ -1958,13 +1952,13 @@ MonoBehaviour:
               - name: 
                 isEnabled: 1
                 collapsed: 0
-                itemGUID: fe87a261-e9d0-4157-bb1f-8716eddbaead
-                logType: 2
+                itemGUID: 94b18c9c-d5fa-4a18-a54f-dcad82a1475c
+                logType: 4
               - name: 
                 isEnabled: 1
                 collapsed: 0
-                itemGUID: 461ea621-026e-47b8-a8d6-adb7932ea5dc
-                logType: 5
+                itemGUID: 6375d2af-91fc-4589-8bf0-3e5f37c4e340
+                logType: 7
               selectionList: 0
               collapsable: 1
               collapsed: 0
@@ -1973,7 +1967,7 @@ MonoBehaviour:
               - name: 
                 isEnabled: 1
                 collapsed: 0
-                itemGUID: 9f728453-f4ed-4421-aa91-2867f01d5e97
+                itemGUID: 01e09725-6620-4139-b37e-db948690f12d
                 columnType: 1
               selectionList: 0
               collapsable: 1
@@ -1993,14 +1987,14 @@ MonoBehaviour:
           itemGUID: 
           iconType: 3
           iconType2: 1
-          iconText: '!'
+          iconText: X
           useIconTextFirstLetter: 0
           useIconLogColor: 0
           iconColor: {r: 1, g: 1, b: 1, a: 1}
           iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
           iconTextureGUID: 
           useIconShadow: 1
-          iconOffset: {x: 0, y: 2}
+          iconOffset: {x: 0, y: 0}
           iconShadowOffset: {x: 0.5, y: 0.5}
           iconSize: 7
         iconSymbol:
@@ -2031,7 +2025,7 @@ MonoBehaviour:
           useIconTextFirstLetter: 1
           useIconLogColor: 1
           iconColor: {r: 1, g: 1, b: 1, a: 1}
-          iconBuiltInID: BACKGROUNDS_ECPBGTRIANGLE
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
           iconTextureGUID: 
           useIconShadow: 1
           iconOffset: {x: 0, y: 0}
@@ -2056,7 +2050,7 @@ MonoBehaviour:
           iconSize: 13
         showInToolbar: 1
         hideLabelInToolbar: 0
-        hideWhenNoMatches: 0
+        hideWhenNoMatches: 1
       assignedTempFilter:
         name: 
         isEnabled: 1
@@ -2181,9 +2175,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1376
+    x: 1277.3334
     y: 72.44444
-    width: 329.66663
+    width: 428.33325
     height: 846.7778
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:

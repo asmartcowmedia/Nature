@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925dce82e7ae2f34cb7ddeb4e7b9e9b4, type: 3}
+  m_Name: Health Potion
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6323990783438316393, guid: 13801e83b0187c84691325f4770c115d, type: 3}
+  itemType: 1
+  description: A potion that will heal the player once used!
+  amountToHeal: 10
