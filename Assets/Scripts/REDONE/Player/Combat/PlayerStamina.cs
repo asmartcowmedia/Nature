@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Sirenix.OdinInspector;
@@ -10,6 +9,9 @@ namespace CampingTrip
         // Serialized and editable from the Unity inspector, not editable in other scripts //
         [FoldoutGroup("Attachable Objects")] 
         [Title("Health")][SerializeField] public SoStaminaPool staminaStats;
+        
+        // Private variables //
+        private Coroutine regen;
         
         // Default Unity Functions //
         private void Awake()
@@ -25,14 +27,37 @@ namespace CampingTrip
             staminaStats.currentStamina = staminaStats.maxStamina;
         }
 
-        private void LateUpdate()
-        {
-            StandardStaminaRegen(staminaStats.standardRegenSpeed);
-        }
-
         // IEnumerators //
+        private IEnumerator RegenStamina()
+        {
+            staminaStats.isGainingStamina = true;
+            yield return new WaitForSeconds(staminaStats.timeBeforeStandardRegen);
+
+            while (staminaStats.currentStamina < staminaStats.maxStamina)
+            {
+                staminaStats.currentStamina += staminaStats.standardRegenAmount;
+            
+                // add one to times drained
+                staminaStats.timesGainingStamina++;
+                
+                yield return new WaitForSeconds(staminaStats.standardRegenSpeed);
+            }
+            
+            staminaStats.isGainingStamina = false;
+            staminaStats.timesGainingStamina = 0;
+
+            regen = null;
+        }
+        
         private IEnumerator IntervalStaminaDrain(float drainAmount, float time, float timesToDrain)
         {
+            // if regen is not null, stop coroutine
+            if (regen != null)
+            {
+                staminaStats.isGainingStamina = false;
+                StopCoroutine(regen);
+            }
+            
             // if both draining and gaining, reset variables
             if (staminaStats.isUsingStamina && staminaStats.isGainingStamina)
             {
@@ -66,6 +91,16 @@ namespace CampingTrip
                 staminaStats.isUsingStamina = false;
                 staminaStats.timesDrainingStamina = 0;
             }
+
+            // if regen is not null, stop coroutine
+            if (regen != null)
+            {
+                staminaStats.isGainingStamina = false;
+                StopCoroutine(regen);
+            }
+            
+            // set regen to coroutine
+            regen = StartCoroutine(RegenStamina());
         }
 
         private IEnumerator IntervalStaminaGain(float staminaGain, float time, float timesToGain)
@@ -102,33 +137,6 @@ namespace CampingTrip
             }
         }
 
-        private IEnumerator WaitThenRegen(float time, float betweenTime)
-        {
-            // while stamina is less than max
-            while (staminaStats.currentStamina < staminaStats.maxStamina && !staminaStats.isUsingStamina)
-            {
-                // wait for time
-                yield return new WaitForSeconds(time);
-             
-                // if over max, set to max, return
-                if (staminaStats.currentStamina >= staminaStats.maxStamina)
-                {
-                    staminaStats.currentStamina = staminaStats.maxStamina;
-                    yield break;
-                }
-                
-                // gain stamina
-                Gain(staminaStats.standardRegenAmount, true, betweenTime);
-                
-                staminaStats.timesGainingStamina++;
-                
-                // check times gained
-                if (!(staminaStats.currentStamina >= staminaStats.maxStamina)) continue;
-                staminaStats.isGainingStamina = false;
-                staminaStats.timesGainingStamina = 0;
-            }
-        }
-
         // Public Functions //
         // resets current stamina gain
         public void ResetStaminaGainCounter()
@@ -141,21 +149,12 @@ namespace CampingTrip
         {
             staminaStats.isUsingStamina = false;
         }
-        
-        // waits, then regenerates stamina over time
-        public void StandardStaminaRegen(float timeToWaitBeforeRegen)
-        {
-            // if gaining/losing stamina and current stamina is less than max stamina, return
-            if (staminaStats.isGainingStamina && staminaStats.currentStamina < staminaStats.maxStamina || staminaStats.isUsingStamina && staminaStats.currentStamina < staminaStats.maxStamina) return;
 
-            // call regen routine
-            StartCoroutine(WaitThenRegen(timeToWaitBeforeRegen, staminaStats.standardRegenSpeed));
-        }
-        
         // Set of functions to drain stamina from the player with various variables (see last on how it works)
         // just drains stamina once for amount given
         public void Drain(float amountToDrain)
         {
+            // drain set amount of stamina
             staminaStats.currentStamina -= amountToDrain;
         }
         

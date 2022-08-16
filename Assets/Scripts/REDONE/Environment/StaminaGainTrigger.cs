@@ -22,6 +22,12 @@ namespace CampingTrip
             // if player
             if (col.gameObject.CompareTag("Player"))
             {
+                // reset using stamina bool
+                if (col.gameObject.GetComponent<PlayerStamina>().staminaStats.isUsingStamina)
+                {
+                    col.gameObject.GetComponent<PlayerStamina>().staminaStats.isUsingStamina = false;
+                }
+                
                 // is interval
                 switch (isInterval)
                 {

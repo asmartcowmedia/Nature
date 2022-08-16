@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxStamina: 100
   staminaRegen: 1
-  standardRegenSpeed: 1
-  standardRegenAmount: 1
+  standardRegenSpeed: 0.1
+  standardRegenAmount: 2
   timeBeforeStandardRegen: 2
-  currentStamina: 100
+  currentStamina: 14
   isUsingStamina: 0
-  isGainingStamina: 0
-  timesDrainingStamina: 22
-  timesGainingStamina: 0
+  isGainingStamina: 1
+  timesDrainingStamina: 0
+  timesGainingStamina: 14
   howLongToDrainOrGain: 0.5

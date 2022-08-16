@@ -5420,7 +5420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1619c2815c94bcb44b7493e1fd52f3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showDebug: 1
+  showDebug: 0
   hpStats: {fileID: 11400000, guid: 1715d878cc4cbbe459674681f5cf0c45, type: 2}
   staminaStats: {fileID: 11400000, guid: 5b71d4efb851b804d865070072f9db3f, type: 2}
   debugString: {fileID: 1676186534}

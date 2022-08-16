@@ -8,11 +8,11 @@ namespace CampingTrip
     {
         // Serialized and editable from the Unity inspector, not editable in other scripts //
         [FoldoutGroup("Variables")] 
-        [Title("Stamina")][SerializeField] public float maxStamina;
+        [Title("Stamina", TitleAlignment = TitleAlignments.Centered)][SerializeField] public float maxStamina;
         [FoldoutGroup("Variables")][SerializeField] public bool staminaRegen;
-        [FoldoutGroup("Variables")][SerializeField] public float standardRegenSpeed;
-        [FoldoutGroup("Variables")][SerializeField] public float standardRegenAmount;
-        [FoldoutGroup("Variables")][SerializeField] public float timeBeforeStandardRegen;
+        [FoldoutGroup("Variables")][ShowIf("@staminaRegen")][Title("Stamina Regen Settings", TitleAlignment = TitleAlignments.Centered)][SerializeField] public float standardRegenSpeed;
+        [FoldoutGroup("Variables")][ShowIf("@staminaRegen")][SerializeField] public float standardRegenAmount;
+        [FoldoutGroup("Variables")][ShowIf("@staminaRegen")][SerializeField] public float timeBeforeStandardRegen;
         
         // Not editable in unity inspector, read only, and not editable in other scripts //
         [FoldoutGroup("Debug")]
