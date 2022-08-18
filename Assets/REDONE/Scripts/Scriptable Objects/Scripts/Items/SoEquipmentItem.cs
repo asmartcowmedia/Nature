@@ -6,6 +6,7 @@ namespace CampingTrip
 {
     /// <summary>
     /// This is an equipment item.
+    /// DEPRECIATED
     /// </summary>
     
     [CreateAssetMenu(fileName = "Equipment Item", menuName = "Cow's Compendium/Inventory System/Items/New Equipment Item")]

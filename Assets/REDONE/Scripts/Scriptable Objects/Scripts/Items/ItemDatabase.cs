@@ -14,24 +14,21 @@ namespace CampingTrip
         // Serialized and editable from the Unity inspector, not editable in other scripts //
         [FoldoutGroup("Database")][SerializeField]public SoItem[] items;
 
-        [FoldoutGroup("Database")][SerializeField] public Dictionary<SoItem, int> GetId = new Dictionary<SoItem, int>();
         [FoldoutGroup("Database")][SerializeField] public Dictionary<int, SoItem> GetItem = new Dictionary<int, SoItem>();
         
         public void OnBeforeSerialize()
         {
+            // create new dictionary
+            GetItem = new Dictionary<int, SoItem>();
         }
 
         public void OnAfterDeserialize()
         {
-            // create new dictionary
-            GetId = new Dictionary<SoItem, int>();
-            GetItem = new Dictionary<int, SoItem>();
-
             // for each item
             for (var i = 0; i < items.Length; i++)
             {
                 // add item to database
-                GetId.Add(items[i], i);
+                items[i].id = i;
                 GetItem.Add(i,items[i]);
             }
         }

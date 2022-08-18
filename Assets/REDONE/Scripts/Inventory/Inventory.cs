@@ -21,13 +21,13 @@ namespace CampingTrip
             if (col.CompareTag("Pickup"))
             {
                 // check if item is on pickup
-                var item = col.GetComponent<Item>();
+                var item = col.GetComponent<PickupItem>();
 
                 // return if no item
                 if (!item) return;
                 
                 // add item and destroy object
-                inventory.AddItem(item.item, 1);
+                inventory.AddItem(new Item(item.item), 1);
                 Destroy(col.gameObject);
             }
         }
@@ -35,7 +35,7 @@ namespace CampingTrip
         private void OnApplicationQuit()
         {
             // clears inventory on app quit
-            inventory.container.Clear();
+            inventory.container.items = new InventorySlot[24];
         }
     }
 }

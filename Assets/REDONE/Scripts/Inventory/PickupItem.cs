@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 
 namespace CampingTrip
 {
-    public class Item : MonoBehaviour
+    public class PickupItem : MonoBehaviour
     {
         // Serialized and editable from the Unity inspector, editable in other scripts //
         [FoldoutGroup("Variables")] 

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6df12efd468b5b49aac0831cab1a221, type: 3}
   m_Name: Bones
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6323990783438316393, guid: c0d2507a1917fb14783978c8037d47cc, type: 3}
+  id: 0
+  uiDisplay: {fileID: 21300000, guid: 9cc71e04156e6974d84c15a0f21a111f, type: 3}
   itemType: 4
   description: The bones of your fallen enemies!
+  buffs: []

@@ -12,8 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9f5748b3e41214f8cdddf955e026ea, type: 3}
   m_Name: Machete
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1448184020665627404, guid: 26bec85241dbbfc49bfb9867a2652cc1, type: 3}
+  id: 2
+  uiDisplay: {fileID: 21300000, guid: 476f1c799603aa84cacf8ca896abb117, type: 3}
   itemType: 0
   description: A machete to chop your foes.
-  amountToDamage: 10
-  amountOfStaminaToDrain: 0
+  buffs:
+  - attribute: 0
+    value: 0
+    min: 5
+    max: 12
+  - attribute: 3
+    value: 0
+    min: 4
+    max: 20
